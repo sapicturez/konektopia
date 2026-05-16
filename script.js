@@ -38,7 +38,7 @@ const TRANSLATIONS = {
       description: "Psicoterapia. Terapia de pareja e individual online. Terapia Cognitivo-Conductual. Talleres y cursos pre compromiso. Con base en Barcelona y atención online internacional.",
       ctaPrimary: "Contacta conmigo",
       ctaSecondary: "Servicios",
-      mottoHtml: "La calidad de tus relaciones define <mark>la calidad de tu vida</mark>.",
+      mottoHtml: "La calidad de tus relaciones define<br><mark>la calidad de tu vida</mark>.",
       features: [
         "Confidencial y profesional",
         "Flexible y online",
@@ -153,20 +153,20 @@ const TRANSLATIONS = {
     services: {
       eyebrow: "Servicios",
       title: "Servicios y precios",
-      lead: "Sesiones individuales y de pareja, cursos y talleres. Adaptables a tu situación, online o presenciales.",
-      priceTBA: "Precio disponible bajo consulta",
-      cta: "Solicitar información",
-      viewResources: "Ver recursos",
-      recommended: "Recomendado para empezar",
-      note: "Los precios se actualizarán pronto. Para información personalizada, contáctame directamente.",
+      lead: "Sesiones individuales y de pareja, talleres y cursos. Elige el formato que mejor se adapta a ti.",
+      group: { sessions: "Sesiones", workshops: "Talleres y cursos", inPerson: "Formato presencial", corporate: "Para empresas" },
+      badge: { online: "Online", inPerson: "Presencial", pack: "Pack", group: "Grupo", corp: "Empresas", inc: "Ebook incluido" },
+      meta: { duration: "Duración", frequency: "Frecuencia", weekly: "Semanal", groupSize: "Grupo", sessions: "Sesiones", cities: "Ciudades", format: "Formato", includes: "Incluye", perPerson: "por persona", perCouple: "por pareja" },
+      bookWa: "Reservar por WhatsApp",
+      contactWa: "Escribir por WhatsApp",
+      note: "Consulta inicial gratuita · Sin compromiso · Respuesta en menos de 24h",
       items: [
-        { t: "Sesión individual online", d: "Espacio de terapia uno a uno desde cualquier lugar del mundo." },
         { t: "Sesión de pareja online", d: "Trabajo conjunto centrado en comunicación, conflictos e intimidad." },
-        { t: "Consulta inicial", d: "Una conversación breve y sin compromiso para valorar cómo podría ayudarte." },
-        { t: "Curso pre compromiso / prematrimonial", d: "Para parejas que valoran un paso importante: convivencia, matrimonio o decisiones a largo plazo." },
-        { t: "Talleres para singles", d: "Grupos pequeños para entender patrones de citas y elegir con más conciencia." },
-        { t: "Talleres de pareja", d: "Aprendizaje práctico para parejas que quieren mejorar conexión y comunicación." },
-        { t: "Recursos · ebooks · cursos", d: "Materiales descargables y cursos auto-guiados (próximamente)." }
+        { t: "Sesión individual online", d: "Terapia uno a uno para ansiedad, autoestima y patrones emocionales." },
+        { t: "Workshop para singles", sub: "Dating y relaciones modernas", d: "Grupos reducidos para entender el mundo de las citas y construir relaciones más sanas.", topics: ["Navegación de apps de citas", "Primeras citas y comunicación", "Resiliencia al rechazo", "Habilidades relacionales"] },
+        { t: "Consultoría pre-compromiso / prematrimonial", sub: "Online", d: "Preparación para relación estable, compromiso, pareja de hecho o matrimonio. Memoria de curso – ebook incluido.", sessions: "5 × 60 min (pareja)" },
+        { t: "Curso pre-compromiso / prematrimonial", sub: "Presencial", d: "Preparación para parejas antes de comprometerse, pareja de hecho o matrimonio.", cities: "Barcelona · Girona · Tarragona · Valencia · Jerez" },
+        { t: "Talleres para empresas", sub: "A medida", d: "Diseñamos el contenido y los objetivos según las necesidades de tu equipo.", topics: ["Comunicación en pareja", "Resolución de conflictos", "Habilidades relacionales", "Otros temas relacionados"] }
       ]
     },
     workshops: {
@@ -406,7 +406,7 @@ const TRANSLATIONS = {
       description: "Psychotherapy. Individual and couples therapy online. Cognitive Behavioural Therapy. Pre-commitment workshops and courses. Based in Barcelona, with international online sessions.",
       ctaPrimary: "Contact me",
       ctaSecondary: "Services",
-      mottoHtml: "The quality of your relationships defines <mark>the quality of your life</mark>.",
+      mottoHtml: "The quality of your relationships defines<br><mark>the quality of your life</mark>.",
       features: [
         "Confidential & professional",
         "Flexible & online",
@@ -520,21 +520,21 @@ const TRANSLATIONS = {
     },
     services: {
       eyebrow: "Services",
-      title: "Services and prices",
-      lead: "Individual and couples sessions, courses and workshops. Adapted to your situation, online or in person.",
-      priceTBA: "Price available on request",
-      cta: "Request information",
-      viewResources: "View resources",
-      recommended: "Recommended start",
-      note: "Prices will be updated soon. For personalised information, contact me directly.",
+      title: "Services & prices",
+      lead: "Individual and couples sessions, workshops and courses. Choose the format that suits you best.",
+      group: { sessions: "Sessions", workshops: "Workshops & courses", inPerson: "In-person format", corporate: "For organisations" },
+      badge: { online: "Online", inPerson: "In person", pack: "Pack", group: "Group", corp: "Corporate", inc: "Ebook included" },
+      meta: { duration: "Duration", frequency: "Frequency", weekly: "Weekly", groupSize: "Group", sessions: "Sessions", cities: "Cities", format: "Format", includes: "Includes", perPerson: "per person", perCouple: "per couple" },
+      bookWa: "Book via WhatsApp",
+      contactWa: "Message via WhatsApp",
+      note: "Free initial consultation · No commitment · Reply within 24h",
       items: [
-        { t: "Individual online session", d: "One-to-one therapy from anywhere in the world." },
         { t: "Couples online session", d: "Joint work focused on communication, conflict and intimacy." },
-        { t: "Initial consultation", d: "A short, no-commitment conversation to see how I might help." },
-        { t: "Pre-commitment / premarital course", d: "For couples considering an important step: living together, marriage or long-term decisions." },
-        { t: "Workshops for singles", d: "Small groups to understand dating patterns and choose more consciously." },
-        { t: "Relationship workshops", d: "Practical learning for couples who want to improve connection and communication." },
-        { t: "Resources · ebooks · courses", d: "Downloadable materials and self-paced courses (coming soon)." }
+        { t: "Individual online session", d: "One-to-one therapy for anxiety, self-esteem and emotional patterns." },
+        { t: "Workshop for singles", sub: "Dating & modern relationships", d: "Small groups to navigate modern dating and build healthier relationship patterns.", topics: ["Dating app navigation", "First dates and communication", "Building resilience to rejection", "Relationship skills development"] },
+        { t: "Pre-commitment / premarital counselling", sub: "Online", d: "Focus on preparing for committed relationships, cohabitation, or marriage. Ebook included.", sessions: "5 × 60 min (couples)" },
+        { t: "Pre-commitment / premarital workshop", sub: "In person", d: "For couples preparing for commitment, cohabitation, or marriage.", cities: "Barcelona · Girona · Tarragona · Valencia · Jerez" },
+        { t: "Corporate workshops", sub: "Tailored programs", d: "We design content and objectives to fit your team's specific needs.", topics: ["Relationship communication skills", "Conflict resolution", "Interpersonal skills", "Other related topics"] }
       ]
     },
     workshops: {
@@ -774,7 +774,7 @@ const TRANSLATIONS = {
       description: "Psychoterapia. Terapia indywidualna i par online. Terapia poznawczo-behawioralna. Warsztaty i kursy przed zaangażowaniem. Siedziba w Barcelonie, sesje online międzynarodowo.",
       ctaPrimary: "Skontaktuj się",
       ctaSecondary: "Usługi",
-      mottoHtml: "Jakość Twoich relacji definiuje <mark>jakość Twojego życia</mark>.",
+      mottoHtml: "Jakość Twoich relacji definiuje<br><mark>jakość Twojego życia</mark>.",
       features: [
         "Poufnie i profesjonalnie",
         "Elastycznie i online",
@@ -889,20 +889,20 @@ const TRANSLATIONS = {
     services: {
       eyebrow: "Usługi",
       title: "Usługi i ceny",
-      lead: "Sesje indywidualne i par, kursy i warsztaty. Dopasowane do Twojej sytuacji, online lub stacjonarnie.",
-      priceTBA: "Cena dostępna na zapytanie",
-      cta: "Zapytaj o szczegóły",
-      viewResources: "Zobacz zasoby",
-      recommended: "Polecane na początek",
-      note: "Ceny zostaną wkrótce zaktualizowane. Po szczegółowe informacje skontaktuj się bezpośrednio.",
+      lead: "Sesje indywidualne i par, warsztaty i kursy. Wybierz format, który najlepiej Ci odpowiada.",
+      group: { sessions: "Sesje", workshops: "Warsztaty i kursy", inPerson: "Format stacjonarny", corporate: "Dla firm" },
+      badge: { online: "Online", inPerson: "Stacjonarnie", pack: "Pakiet", group: "Grupa", corp: "Firmowe", inc: "Ebook w zestawie" },
+      meta: { duration: "Czas trwania", frequency: "Częstotliwość", weekly: "Tygodniowo", groupSize: "Grupa", sessions: "Sesje", cities: "Miasta", format: "Format", includes: "Zawiera", perPerson: "za osobę", perCouple: "za parę" },
+      bookWa: "Zarezerwuj przez WhatsApp",
+      contactWa: "Napisz przez WhatsApp",
+      note: "Bezpłatna konsultacja wstępna · Bez zobowiązań · Odpowiedź w 24h",
       items: [
-        { t: "Sesja indywidualna online", d: "Terapia jeden na jeden z dowolnego miejsca na świecie." },
-        { t: "Sesja dla par online", d: "Wspólna praca skupiona na komunikacji, konflikcie i bliskości." },
-        { t: "Konsultacja wstępna", d: "Krótka rozmowa bez zobowiązań, by ocenić, jak mogę pomóc." },
-        { t: "Kurs przed zaangażowaniem / przedmałżeński", d: "Dla par rozważających ważny krok: wspólne życie, ślub lub długoterminowe decyzje." },
-        { t: "Warsztaty dla singli", d: "Małe grupy, by zrozumieć wzorce randkowania i wybierać bardziej świadomie." },
-        { t: "Warsztaty dla par", d: "Praktyczna nauka dla par, które chcą poprawić więź i komunikację." },
-        { t: "Zasoby · ebooki · kursy", d: "Materiały do pobrania i kursy w trybie samodzielnym (wkrótce)." }
+        { t: "Sesja dla par online", d: "Wspólna praca nad komunikacją, konfliktami i bliskością." },
+        { t: "Sesja indywidualna online", d: "Terapia jeden na jeden – lęk, samoocena i wzorce emocjonalne." },
+        { t: "Warsztat dla singli", sub: "Randkowanie i nowoczesne relacje", d: "Małe grupy, by zrozumieć świat randek i budować zdrowsze relacje.", topics: ["Nawigacja po aplikacjach randkowych", "Pierwsze randki i komunikacja", "Odporność na odrzucenie", "Umiejętności relacyjne"] },
+        { t: "Doradztwo przed zaangażowaniem / przedmałżeńskie", sub: "Online", d: "Przygotowanie do stałego związku, kohabitacji lub małżeństwa. Ebook w zestawie.", sessions: "5 × 60 min (para)" },
+        { t: "Kurs przed zaangażowaniem / przedmałżeński", sub: "Stacjonarnie", d: "Dla par przygotowujących się do zaangażowania, wspólnego życia lub ślubu.", cities: "Barcelona · Girona · Tarragona · Valencia · Jerez" },
+        { t: "Warsztaty firmowe", sub: "Na zamówienie", d: "Projektujemy treści i cele dopasowane do potrzeb Twojego zespołu.", topics: ["Komunikacja w relacji", "Rozwiązywanie konfliktów", "Umiejętności interpersonalne", "Inne powiązane tematy"] }
       ]
     },
     workshops: {
@@ -1513,23 +1513,24 @@ function initHeroPrompt() {
   const input = document.getElementById("heroPromptInput");
   if (!form || !input) return;
 
+  /* ---- Form submit → WhatsApp ---- */
   form.addEventListener("submit", (e) => {
     e.preventDefault();
-    const lang = currentLang();
-    const dict = TRANSLATIONS[lang] || TRANSLATIONS.es;
+    const lang  = currentLang();
+    const dict  = TRANSLATIONS[lang] || TRANSLATIONS.es;
     const intro = dict.hero?.promptIntro || "";
     const text  = input.value.trim();
     const body  = text ? `${intro}\n\n${text}` : intro;
     openWhatsAppWith(body);
   });
 
-  // Suggestion pills → prefill + submit (one-tap CTA)
+  /* ---- Suggestion pills → one-tap prefill + send ---- */
   document.querySelectorAll(".suggestion-pill").forEach(pill => {
     pill.addEventListener("click", () => {
-      const idx = Number(pill.dataset.suggestion);
-      const lang = currentLang();
-      const dict = TRANSLATIONS[lang] || TRANSLATIONS.es;
-      const label = dict.hero?.suggestions?.[idx] || pill.textContent.trim();
+      const idx   = Number(pill.dataset.suggestion);
+      const lang  = currentLang();
+      const dict  = TRANSLATIONS[lang] || TRANSLATIONS.es;
+      const label = dict.hero?.suggestions?.[idx] ?? pill.textContent.trim();
       input.value = label;
       form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event("submit", { cancelable: true }));
     });
@@ -1601,5 +1602,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initResourceTabs();   // safe no-op on pages without tabs
   initContactForm();    // safe no-op on pages without form
   initProblemsJourney();
+  initHeroPrompt();
   initYear();
 });

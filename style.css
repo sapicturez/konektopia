@@ -459,10 +459,11 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 }
 .prompt-submit:hover { background: var(--sun); color: var(--ink); }
 .prompt-hint {
-  margin: 0 auto var(--s-7);
+  margin: 0 auto var(--s-5);
   font-size: 13px; color: var(--ink-3);
   max-width: 520px;
 }
+
 
 /* Suggestion pills */
 .hero-suggestions {
@@ -803,6 +804,153 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 .service-link:hover { color: var(--ink); }
 .service-link:hover::after { transform: translateX(4px); }
 .service-note { text-align: center; font-size: 14px; color: var(--ink-3); font-weight: 300; }
+
+/* ========= SERVICES PAGE — Apple-style cards ========= */
+.svc-section {
+  padding: clamp(48px, 6vw, 96px) 0;
+  background: var(--bg-soft);
+}
+.svc-intro {
+  text-align: center; max-width: 580px;
+  margin: 0 auto clamp(40px, 5vw, 60px);
+}
+.svc-group { margin-bottom: clamp(36px, 5vw, 56px); }
+.svc-group-label {
+  font-family: var(--sans); font-size: 11px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ink-3); margin: 0 0 14px; padding: 0 2px;
+}
+.svc-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: clamp(10px, 1.4vw, 18px);
+}
+.svc-card {
+  background: var(--surface); border-radius: var(--r-xl);
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid var(--line);
+  box-shadow: 0 2px 12px rgba(15,17,23,.05);
+  display: flex; flex-direction: column; gap: 16px;
+  transition: box-shadow var(--t) var(--ease), transform var(--t) var(--ease);
+}
+.svc-card:hover {
+  box-shadow: 0 8px 28px rgba(15,17,23,.10);
+  transform: translateY(-2px);
+}
+.svc-card-wide { grid-column: 1 / -1; }
+
+/* Badges */
+.svc-badges { display: flex; flex-wrap: wrap; gap: 5px; }
+.svc-badge {
+  padding: 3px 10px; border-radius: var(--r-pill);
+  font-size: 10.5px; font-weight: 700; letter-spacing: .05em;
+  text-transform: uppercase; line-height: 1.7;
+}
+.svc-b-online   { background: var(--ink);      color: #fff; }
+.svc-b-person   { background: var(--c-sage);   color: var(--ink); }
+.svc-b-pack     { background: var(--sun);      color: var(--ink); }
+.svc-b-group    { background: var(--c-mauve);  color: var(--ink); }
+.svc-b-corp     { background: var(--c-sky);    color: var(--ink); }
+.svc-b-inc      { background: var(--c-peach);  color: var(--ink); }
+
+/* Title */
+.svc-name {
+  margin: 0; font-family: var(--serif); font-weight: 700;
+  font-size: clamp(1.1rem, 1.2vw + .5rem, 1.45rem);
+  letter-spacing: -.025em; line-height: 1.18;
+}
+.svc-sub {
+  display: block; font-family: var(--sans);
+  font-size: 12px; font-weight: 500;
+  color: var(--ink-3); letter-spacing: .02em; margin-top: 3px;
+}
+.svc-desc { font-size: 14px; color: var(--ink-2); line-height: 1.65; margin: 0; }
+
+/* Topic chips */
+.svc-topics { display: flex; flex-wrap: wrap; gap: 5px; margin: 0; padding: 0; list-style: none; }
+.svc-topic {
+  padding: 5px 11px;
+  background: var(--bg-soft); border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  font-size: 12px; font-weight: 500; color: var(--ink-2);
+}
+
+/* iOS-style meta rows */
+.svc-meta {
+  border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden;
+}
+.svc-meta-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 15px; font-size: 13px;
+  border-bottom: 1px solid var(--line);
+}
+.svc-meta-row:last-child { border-bottom: none; }
+.svc-meta-row dt { color: var(--ink-3); font-weight: 500; }
+.svc-meta-row dd { margin: 0; font-weight: 600; color: var(--ink); text-align: right; }
+
+/* Price rows (session) */
+.svc-price-block { border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+.svc-price-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 11px 15px; border-bottom: 1px solid var(--line);
+}
+.svc-price-row:last-child { border-bottom: none; }
+.pay-method { font-size: 13px; color: var(--ink-2); font-weight: 500; }
+.pay-amount {
+  font-size: 20px; font-family: var(--serif); font-weight: 700;
+  color: var(--ink); letter-spacing: -.03em;
+}
+
+/* Single large price (pack / group) */
+.svc-price-single {
+  display: flex; align-items: baseline; gap: 7px;
+  padding: 14px 16px;
+  background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--r-md);
+}
+.svc-price-big {
+  font-family: var(--serif); font-weight: 700;
+  font-size: clamp(2rem, 2.5vw, 2.6rem);
+  letter-spacing: -.04em; color: var(--ink);
+}
+.svc-price-unit { font-size: 13px; color: var(--ink-3); font-weight: 500; }
+
+/* CTA */
+.svc-cta {
+  margin-top: auto; display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; padding: 13px 20px;
+  background: var(--ink); color: #fff;
+  border-radius: var(--r-pill);
+  font-size: 13.5px; font-weight: 600;
+  transition: background var(--t) var(--ease), color var(--t) var(--ease);
+  text-decoration: none;
+}
+.svc-cta:hover { background: var(--sun); color: var(--ink); }
+
+/* Dark card — corporate */
+.svc-card-dark {
+  background: var(--ink); border-color: var(--ink); color: #fff;
+}
+.svc-card-dark .svc-name  { color: #fff; }
+.svc-card-dark .svc-sub   { color: rgba(255,255,255,.45); }
+.svc-card-dark .svc-desc  { color: rgba(255,255,255,.65); }
+.svc-card-dark .svc-topic {
+  background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.12);
+  color: rgba(255,255,255,.75);
+}
+.svc-card-dark .svc-group-label { color: rgba(255,255,255,.4); }
+.svc-card-dark .svc-cta   { background: var(--sun); color: var(--ink); }
+.svc-card-dark .svc-cta:hover { background: #fff; }
+
+/* Bottom note */
+.svc-note {
+  text-align: center; font-size: 13px; color: var(--ink-3);
+  margin-top: clamp(28px, 3vw, 44px); font-weight: 300;
+}
+
+/* Mobile — stack to 1 col */
+@media (max-width: 640px) {
+  .svc-grid { grid-template-columns: 1fr; }
+  .svc-card-wide { grid-column: 1; }
+}
 
 /* ---------- WORKSHOPS ---------- */
 .workshops { background: var(--bg-soft); }
