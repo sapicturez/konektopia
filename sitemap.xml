@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ===================== HOMEPAGE ===================== -->
+  <url>
+    <loc>https://konektopia.com/</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://konektopia.com/?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://konektopia.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://konektopia.com/?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://konektopia.com/"/>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- ===================== THERAPY ===================== -->
+  <url>
+    <loc>https://konektopia.com/therapy.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://konektopia.com/therapy.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://konektopia.com/therapy.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://konektopia.com/therapy.html?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://konektopia.com/therapy.html"/>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ===================== SERVICES ===================== -->
+  <url>
+    <loc>https://konektopia.com/services.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://konektopia.com/services.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://konektopia.com/services.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://konektopia.com/services.html?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://konektopia.com/services.html"/>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ===================== WORKSHOPS ===================== -->
+  <url>
+    <loc>https://konektopia.com/workshops.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://konektopia.com/workshops.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://konektopia.com/workshops.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://konektopia.com/workshops.html?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://konektopia.com/workshops.html"/>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ===================== RESOURCES ===================== -->
+  <url>
+    <loc>https://konektopia.com/resources.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://konektopia.com/resources.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://konektopia.com/resources.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://konektopia.com/resources.html?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://konektopia.com/resources.html"/>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===================== ABOUT ===================== -->
+  <url>
+    <loc>https://konektopia.com/about.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://konektopia.com/about.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://konektopia.com/about.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://konektopia.com/about.html?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://konektopia.com/about.html"/>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ===================== CONTACT ===================== -->
+  <url>
+    <loc>https://konektopia.com/contact.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://konektopia.com/contact.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://konektopia.com/contact.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://konektopia.com/contact.html?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://konektopia.com/contact.html"/>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ===================== LEGAL ===================== -->
+  <url>
+    <loc>https://konektopia.com/legal.html</loc>
+    <xhtml:link rel="alternate" hreflang="es" href="https://konektopia.com/legal.html?lang=es"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://konektopia.com/legal.html?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://konektopia.com/legal.html?lang=pl"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://konektopia.com/legal.html"/>
+    <lastmod>2026-05-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+</urlset>
