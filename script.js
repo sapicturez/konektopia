@@ -73,7 +73,7 @@ const TRANSLATIONS = {
     },
     "contact": {
       "title": "Contact",
-      "text": "Write to me on WhatsApp or give me a call, whichever feels easier."
+      "text": "Write to me or call me on WhatsApp, whichever feels easier."
     },
     "footer": {
       "tagline": "Online psychotherapy in English, Spanish and Polish.",
@@ -175,7 +175,7 @@ const TRANSLATIONS = {
     },
     "contact": {
       "title": "Contacto",
-      "text": "Escríbeme por WhatsApp o llámame, como te resulte más fácil."
+      "text": "Escríbeme o llámame por WhatsApp, como te resulte más fácil."
     },
     "footer": {
       "tagline": "Psicoterapia online en español, inglés y polaco.",
@@ -277,7 +277,7 @@ const TRANSLATIONS = {
     },
     "contact": {
       "title": "Kontakt",
-      "text": "Napisz do mnie na WhatsAppie albo zadzwoń, jak ci wygodniej."
+      "text": "Napisz albo zadzwoń do mnie przez WhatsApp, jak ci wygodniej."
     },
     "footer": {
       "tagline": "Psychoterapia online po polsku, hiszpańsku i angielsku.",

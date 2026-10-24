@@ -591,15 +591,6 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   6% { transform: scale(1.12); }
 }
 
-/* Header phone */
-.header-phone {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 14px; font-weight: 600; color: var(--ink); white-space: nowrap;
-  min-height: 44px; padding: 0 4px;
-}
-.header-phone svg { color: var(--accent); }
-.header-phone:hover { color: var(--accent); }
-.mobile-phone { justify-content: center; }
 /* Buttons inside the mobile menu must not inherit the big menu-link style */
 .mobile-menu .btn, .mobile-menu .btn:hover {
   display: inline-flex; font-family: var(--sans); font-weight: 600;
@@ -690,10 +681,9 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 @media (max-width: 1024px) {
   .primary-nav { display: none; }
   .menu-toggle { display: inline-flex; }
-  .header-cta { display: none; }
+  .header-cta { width: 44px; min-height: 44px; padding: 0; }  /* icon-only WhatsApp button */
+  .header-cta-num { display: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .header-phone { width: 44px; justify-content: center; padding: 0; border-radius: var(--r-pill); border: 1.5px solid rgba(15,17,23,.18); }
-  .header-phone-num { display: none; }
 }
 @media (max-width: 480px) {
   .header-actions .lang-switch { display: none; }  /* language lives in the mobile menu */
