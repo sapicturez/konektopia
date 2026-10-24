@@ -1,3 +1,10 @@
+# Clean home URL: /index.html → /
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
+  RewriteRule ^index\.html$ / [R=301,L]
+</IfModule>
+
 # Always revalidate pages and assets so updates show up immediately
 <IfModule mod_headers.c>
   <FilesMatch "\.(html|css|js|xml|txt)$">
