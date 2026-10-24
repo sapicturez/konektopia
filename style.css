@@ -515,15 +515,6 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 .brand { gap: 10px; }
 .brand-foot { color: #fff; }
 
-/* Outline draws itself, then the shape fills in (home hero only) */
-.hero-logo.is-drawing path {
-  fill-opacity: 0;
-  stroke: var(--accent); stroke-width: 6;
-  stroke-dasharray: 1; stroke-dashoffset: 1;
-  animation: logo-draw .9s var(--ease) forwards, logo-fill .45s var(--ease) .8s forwards;
-}
-@keyframes logo-draw { to { stroke-dashoffset: 0; } }
-@keyframes logo-fill { to { fill-opacity: 1; stroke-width: 0; } }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -532,11 +523,10 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   text-align: center;
 }
 .hero-inner { display: flex; flex-direction: column; align-items: center; }
-.hero-logo { margin-bottom: var(--s-5); }
 .hero-title {
-  font-size: clamp(3.1rem, 13vw, 9.5rem);
+  font-size: clamp(2.5rem, 9vw, 6.25rem);
   font-weight: 700; letter-spacing: -.045em; line-height: .92;
-  margin: 0 0 var(--s-5);
+  margin: .55em 0 var(--s-5);
   overflow-wrap: anywhere;
 }
 .hero-name {
@@ -555,6 +545,64 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   color: var(--ink); margin: 0 0 var(--s-4);
 }
 .hero-intro { max-width: 56ch; font-size: 1.08rem; line-height: 1.65; color: var(--ink-2); margin: 0; }
+
+/* Heart as the dot over the "I": draws, holds, then retracts — every 10 s */
+.heart-i { position: relative; display: inline-block; }
+.heart-dot {
+  position: absolute; left: 50%; bottom: 100%;
+  width: .5em; line-height: 0; cursor: pointer;
+  transform: translate(-50%, .04em);
+}
+.heart-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.heart-svg path {
+  stroke: var(--accent); stroke-width: 18; stroke-linejoin: round;
+  stroke-dasharray: 1; stroke-dashoffset: 0;
+  animation: heart-loop 10s var(--ease) infinite;
+}
+@keyframes heart-loop {
+  0%   { stroke-dashoffset: 1; fill-opacity: 0; }
+  10%  { stroke-dashoffset: 0; fill-opacity: 0; }
+  16%  { fill-opacity: 1; }
+  84%  { stroke-dashoffset: 0; fill-opacity: 1; }
+  90%  { stroke-dashoffset: 0; fill-opacity: 0; }
+  100% { stroke-dashoffset: 1; fill-opacity: 0; }
+}
+.heart-dot.is-away { visibility: hidden; }
+.heart-dot.is-hopping { animation: heart-hop .55s var(--ease); }
+@keyframes heart-hop {
+  45% { transform: translate(-50%, -.4em) scale(1.15); }
+}
+/* Grabbed heart following the cursor (JS moves it) */
+.heart-follower {
+  position: fixed; left: 0; top: 0; z-index: 200;
+  line-height: 0; pointer-events: none; will-change: transform;
+}
+.heart-follower .heart-svg { animation: heart-pop .35s var(--ease); }
+@keyframes heart-pop { from { transform: scale(.6); } 60% { transform: scale(1.2); } }
+
+/* Header logo: a soft double beat every 10 s */
+.site-header .brand .logo-mark { transform-origin: 50% 60%; animation: heartbeat 10s ease-in-out infinite; }
+@keyframes heartbeat {
+  0%, 9%, 100% { transform: scale(1); }
+  2% { transform: scale(1.18); }
+  4% { transform: scale(1); }
+  6% { transform: scale(1.12); }
+}
+
+/* Header phone */
+.header-phone {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 600; color: var(--ink); white-space: nowrap;
+  min-height: 44px; padding: 0 4px;
+}
+.header-phone svg { color: var(--accent); }
+.header-phone:hover { color: var(--accent); }
+.mobile-phone { justify-content: center; }
+/* Buttons inside the mobile menu must not inherit the big menu-link style */
+.mobile-menu .btn, .mobile-menu .btn:hover {
+  display: inline-flex; font-family: var(--sans); font-weight: 600;
+  font-size: 16px; letter-spacing: 0; line-height: 1.2; padding: 14px 26px;
+}
 
 /* ---------- Therapy paths (cards) ---------- */
 .paths { padding: 0 0 clamp(56px, 7vw, 112px); background: var(--bg); }
@@ -642,6 +690,11 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   .menu-toggle { display: inline-flex; }
   .header-cta { display: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .header-phone { width: 44px; justify-content: center; padding: 0; border-radius: var(--r-pill); border: 1.5px solid rgba(15,17,23,.18); }
+  .header-phone-num { display: none; }
+}
+@media (max-width: 480px) {
+  .header-actions .lang-switch { display: none; }  /* language lives in the mobile menu */
 }
 @media (max-width: 640px) {
   body { font-size: 16px; }

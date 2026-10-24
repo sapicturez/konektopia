@@ -586,11 +586,70 @@ function initYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
-/* ---------- Logo: outline draws, then fills (once per visit) ---------- */
-function initLogoDraw() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  const logo = document.querySelector(".hero-logo");
-  if (logo) logo.classList.add("is-drawing");
+/* ---------- Hero heart: hover → it jumps onto the cursor and follows; click or leaving the window sends it home ---------- */
+function initHeartCursor() {
+  const dot = document.querySelector(".heart-dot");
+  if (!dot) return;
+  const canFollow = window.matchMedia("(hover: hover) and (pointer: fine)").matches &&
+                    !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!canFollow) {
+    // Touch / reduced motion: a small hop instead
+    dot.addEventListener("click", () => {
+      dot.classList.remove("is-hopping");
+      void dot.offsetWidth;
+      dot.classList.add("is-hopping");
+    });
+    return;
+  }
+
+  const OFFSET = 14;        // keep the heart beside the pointer so it never covers what you click
+  const EASE = 0.18;        // follow lag
+  let follower = null, state = "home", x = 0, y = 0, tx = 0, ty = 0;
+
+  const home = () => dot.getBoundingClientRect();
+
+  function tick() {
+    if (state === "returning") {
+      const h = home();
+      tx = h.left; ty = h.top;
+      if (Math.abs(tx - x) < 0.5 && Math.abs(ty - y) < 0.5) {
+        follower.remove();
+        follower = null;
+        dot.classList.remove("is-away");
+        state = "home";
+        return;
+      }
+    }
+    x += (tx - x) * EASE;
+    y += (ty - y) * EASE;
+    follower.style.transform = `translate(${x}px, ${y}px)`;
+    requestAnimationFrame(tick);
+  }
+
+  dot.addEventListener("mouseenter", e => {
+    if (state !== "home") return;
+    const h = home();
+    follower = dot.cloneNode(true);
+    follower.className = "heart-follower";
+    follower.style.width = h.width + "px";
+    document.body.appendChild(follower);
+    x = h.left; y = h.top;
+    tx = e.clientX + OFFSET; ty = e.clientY + OFFSET;
+    dot.classList.add("is-away");
+    state = "follow";
+    requestAnimationFrame(tick);
+  });
+
+  document.addEventListener("mousemove", e => {
+    if (state !== "follow") return;
+    tx = e.clientX + OFFSET;
+    ty = e.clientY + OFFSET;
+  });
+
+  const release = () => { if (state === "follow") state = "returning"; };
+  document.addEventListener("click", release);
+  document.documentElement.addEventListener("mouseleave", release);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -600,5 +659,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initReveals();
   initHeaderScroll();
   initYear();
-  initLogoDraw();
+  initHeartCursor();
 });
