@@ -625,13 +625,13 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 
 .tags {
   display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-2) var(--s-6);
-  margin-top: clamp(40px, 5vw, 72px); padding: var(--s-5) 0;
-  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  margin-top: clamp(32px, 4vw, 56px);
 }
 .tags li {
-  font-family: var(--serif); font-weight: 500;
-  font-size: clamp(1rem, .5vw + .9rem, 1.2rem); letter-spacing: -.01em; color: var(--ink);
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--serif); font-weight: 500; font-size: 14px; letter-spacing: .01em; color: var(--ink);
 }
+.tags svg { flex-shrink: 0; color: var(--accent); }
 
 /* ---------- Talk (CTA) ---------- */
 .talk { padding: 0 0 clamp(72px, 9vw, 128px); background: var(--bg); }
