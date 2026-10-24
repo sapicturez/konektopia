@@ -554,7 +554,11 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   /* +.0225em = half the title's -.045em letter-spacing: centres the heart on the I's stem, not its advance box */
   transform: translate(calc(-50% + .0225em), .04em);
 }
-.heart-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.heart-svg {
+  display: block; width: 100%; height: auto; overflow: visible;
+  transform-origin: 50% 60%;
+  animation: heartbeat 5s ease-in-out 2.5s infinite;  /* offset: beats land while the heart is fully drawn */
+}
 .heart-svg path {
   stroke: var(--accent); stroke-width: 24; stroke-linejoin: round;
   clip-path: url(#heart-clip);   /* only the inner half of the stroke shows: never wider than the logo */
@@ -579,16 +583,16 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   position: fixed; left: 0; top: 0; z-index: 200;
   line-height: 0; pointer-events: none; will-change: transform;
 }
-.heart-follower .heart-svg { animation: heart-pop .35s var(--ease); }
+.heart-follower .heart-svg { animation: heart-pop .35s var(--ease), heartbeat 5s ease-in-out .35s infinite; }
 @keyframes heart-pop { from { transform: scale(.6); } 60% { transform: scale(1.2); } }
 
-/* Header logo: a soft double beat every 10 s */
-.site-header .brand .logo-mark { transform-origin: 50% 60%; animation: heartbeat 10s ease-in-out infinite; }
+/* Heart logos (header, footer, hero): a soft double beat every 5 s */
+.brand .logo-mark { transform-origin: 50% 60%; animation: heartbeat 5s ease-in-out infinite; }
 @keyframes heartbeat {
-  0%, 9%, 100% { transform: scale(1); }
-  2% { transform: scale(1.18); }
-  4% { transform: scale(1); }
-  6% { transform: scale(1.12); }
+  0%, 18%, 100% { transform: scale(1); }
+  4% { transform: scale(1.18); }
+  8% { transform: scale(1); }
+  12% { transform: scale(1.12); }
 }
 
 /* Buttons inside the mobile menu must not inherit the big menu-link style */
