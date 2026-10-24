@@ -33,8 +33,7 @@
   /* People-Shift card colors */
 
   /* Type — Sunday Counselling font system */
-  /* Outfit stands in for Primavera Sans until a commercial webfont licence is bought;
-     then add its @font-face and put "Primavera Sans" first in both stacks. */
+  /* Outfit (Google Fonts, OFL) — the brand typeface */
   --serif: "Outfit", system-ui, sans-serif;   /* display / headings / brand */
   --sans:  "Outfit", system-ui, sans-serif;   /* body / UI / paragraphs */
 
