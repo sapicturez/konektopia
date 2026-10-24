@@ -4,3 +4,12 @@
     Header set Cache-Control "no-cache"
   </FilesMatch>
 </IfModule>
+
+# TEMPORARY (added 2026-10-24, remove after 2026-11-15): browsers that saw the
+# pre-redesign site keep old pages cached for weeks without asking the server.
+# Visiting the home page tells them to drop that cache so every page is fresh.
+<IfModule mod_headers.c>
+  <FilesMatch "^index\.html$">
+    Header set Clear-Site-Data "\"cache\""
+  </FilesMatch>
+</IfModule>
