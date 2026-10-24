@@ -550,12 +550,14 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 .heart-i { position: relative; display: inline-block; }
 .heart-dot {
   position: absolute; left: 50%; bottom: 100%;
-  width: .5em; line-height: 0; cursor: pointer;
-  transform: translate(-50%, .04em);
+  width: .47em; line-height: 0; cursor: pointer;
+  /* +.0225em = half the title's -.045em letter-spacing: centres the heart on the I's stem, not its advance box */
+  transform: translate(calc(-50% + .0225em), .04em);
 }
 .heart-svg { display: block; width: 100%; height: auto; overflow: visible; }
 .heart-svg path {
-  stroke: var(--accent); stroke-width: 18; stroke-linejoin: round;
+  stroke: var(--accent); stroke-width: 24; stroke-linejoin: round;
+  clip-path: url(#heart-clip);   /* only the inner half of the stroke shows: never wider than the logo */
   stroke-dasharray: 1; stroke-dashoffset: 0;
   animation: heart-loop 10s var(--ease) infinite;
 }
@@ -570,7 +572,7 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 .heart-dot.is-away { visibility: hidden; }
 .heart-dot.is-hopping { animation: heart-hop .55s var(--ease); }
 @keyframes heart-hop {
-  45% { transform: translate(-50%, -.4em) scale(1.15); }
+  45% { transform: translate(calc(-50% + .0225em), -.4em) scale(1.15); }
 }
 /* Grabbed heart following the cursor (JS moves it) */
 .heart-follower {
