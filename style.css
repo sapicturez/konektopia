@@ -421,17 +421,8 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   position: relative;
 }
 .subpage-hero-inner {
-  max-width: 880px; margin: 0 auto; text-align: left;
+  max-width: 880px; margin: 0 auto; text-align: center;
 }
-.breadcrumbs {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 13px; font-weight: 500; color: var(--ink-3);
-  letter-spacing: .04em; text-transform: uppercase;
-  margin-bottom: var(--s-5);
-}
-.breadcrumbs a { color: var(--ink-2); }
-.breadcrumbs a:hover { color: var(--ink); }
-.breadcrumbs span[aria-hidden] { opacity: .5; }
 
 .subpage-hero .eyebrow { margin-bottom: var(--s-4); }
 .subpage-title {
@@ -447,7 +438,7 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   max-width: 62ch; margin: 0 0 var(--s-6);
 }
 .subpage-jump {
-  display: flex; gap: var(--s-5); flex-wrap: wrap; margin-top: var(--s-4);
+  display: flex; gap: var(--s-5); flex-wrap: wrap; justify-content: center; margin-top: var(--s-4);
 }
 
 /* Therapy blocks on therapy.html */
@@ -615,7 +606,14 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   color: var(--ink); max-width: 34ch; margin: 0 auto var(--s-6);
 }
 
-/* ---------- Sub-pages ---------- */
+/* ---------- Sub-pages (centred, like the home hero) ---------- */
+.subpage-title { margin-bottom: 0; }
+.subpage-hero .rule { margin: var(--s-5) auto; }
+.subpage-lead { margin-left: auto; margin-right: auto; }
+.prose { margin: 0 auto; text-align: center; }
+.prose p { margin-left: auto; margin-right: auto; }
+.contact-actions { justify-content: center; }
+.paths-grid--two { max-width: 820px; margin: 0 auto; }
 .paths-sub { padding-top: 0; }
 .subpage-title { overflow-wrap: anywhere; }
 .prose-block { padding: 0 0 clamp(56px, 7vw, 104px); background: var(--bg); }
@@ -637,6 +635,7 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 }
 @media (min-width: 1100px) {
   .paths-grid { grid-template-columns: repeat(3, 1fr); }
+  .paths-grid--two { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 1024px) {
   .primary-nav { display: none; }
