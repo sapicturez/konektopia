@@ -10,6 +10,6 @@
 # Visiting the home page tells them to drop that cache so every page is fresh.
 <IfModule mod_headers.c>
   <FilesMatch "^index\.html$">
-    Header set Clear-Site-Data "\"cache\""
+    Header set Clear-Site-Data '"cache"'
   </FilesMatch>
 </IfModule>
