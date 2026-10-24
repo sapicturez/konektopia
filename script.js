@@ -1,1120 +1,317 @@
 /* =========================================================
    KONEKTOPIA — vanilla JS
-   - i18n (ES default, EN, PL)
-   - Language switcher with sliding indicator
-   - Mobile menu
-   - Smooth scroll (with sticky header offset)
-   - Scroll reveals
-   - Header scroll state
-   - Resources tabs
-   - Active section highlight in nav
-   - Lightweight contact form UX (no backend wired)
+   - i18n (EN default, ES, PL) with English fallback
+   - Language switcher, mobile menu, smooth scroll
+   - Scroll reveals, header scroll state, logo draw
    ========================================================= */
 
 /* ---------- Translations ---------- */
 const TRANSLATIONS = {
-  es: {
-    meta: {
-      title: "KONEKTOPIA | Psicoterapia y Terapia de Pareja en Barcelona",
-      description: "KONEKTOPIA ofrece psicoterapia online individual y de pareja, terapia cognitivo-conductual, cursos prematrimoniales y talleres relacionales en español, inglés y polaco. Con base en Barcelona y sesiones online internacionales.",
-      ogTitle: "KONEKTOPIA | Psicoterapia y Terapia de Pareja en Barcelona",
-      ogDescription: "Psicoterapia online individual y de pareja, terapia cognitivo-conductual, cursos prematrimoniales y talleres relacionales. Barcelona + online internacional."
+  "en": {
+    "meta": {
+      "title": "KONEKTOPIA · Sonia Foder · Online psychotherapy",
+      "description": "Online psychotherapy with Sonia Foder: individual therapy, couples therapy and life across cultures. In English, Spanish and Polish."
     },
-    a11y: { skip: "Saltar al contenido principal" },
-    nav: {
-      home: "Inicio",
-      help: "Cómo te ayudo", about: "Sobre mí", therapy: "Terapia",
-      services: "Servicios", workshops: "Talleres", premarital: "Curso prematrimonial",
-      singles: "Para singles", resources: "Recursos", contact: "Contacto",
-      cta: "Contacta conmigo"
+    "a11y": {
+      "skip": "Skip to main content"
     },
-    hero: {
-      badge: "Online · Barcelona · Internacional",
-      intro: "Psicoterapia, terapia de pareja y talleres relacionales. Un espacio cálido, profesional y sin juicios para empezar.",
-      tiny: "Respuesta en menos de 24h · Sin compromiso",
-      eyebrow: "Psicoterapia · Terapia de pareja · Online & Barcelona",
-      welcome: "Bienvenidxs a",
-      motto: "La calidad de tus relaciones define la calidad de tu vida.",
-      description: "Psicoterapia. Terapia de pareja e individual online. Terapia Cognitivo-Conductual. Talleres y cursos pre compromiso. Con base en Barcelona y atención online internacional.",
-      ctaPrimary: "Contacta conmigo",
-      ctaSecondary: "Servicios",
-      mottoHtml: "La calidad de tus relaciones define<br><mark>la calidad de tu vida</mark>.",
-      features: [
-        "Confidencial y profesional",
-        "Flexible y online",
-        "Integral y a tu medida"
-      ],
-      announce: "Consulta inicial gratuita · plazas limitadas",
-      promptPlaceholder: "Cuéntame brevemente qué te trae aquí…",
-      promptAria: "Cuéntame brevemente qué te trae aquí",
-      promptSend: "Enviar",
-      promptHint: "Al enviar abrirás WhatsApp con tu mensaje listo. Sin compromiso.",
-      promptIntro: "Hola, me gustaría una consulta inicial.",
-      suggestions: [
-        "Tengo conflictos de pareja",
-        "Quiero empezar terapia individual",
-        "Pensamos en un curso prematrimonial",
-        "Ansiedad o baja autoestima",
-        "Soy expat / migrante"
-      ],
-      trust: ["Terapia online", "Terapia de pareja", "Terapia individual", "Talleres", "Barcelona", "Sesiones online internacionales"]
+    "nav": {
+      "home": "Home",
+      "therapy": "Therapy",
+      "onlyYou": "Only you",
+      "forBoth": "For both",
+      "about": "About",
+      "contact": "Contact"
     },
-    approach: {
-      eyebrow: "Cómo trabajamos",
-      title: "Comprender antes de cambiar",
-      p1: "La psicoterapia empieza con curiosidad: por qué pensamos lo que pensamos, sentimos lo que sentimos y nos relacionamos como lo hacemos.",
-      p2: "Juntos miramos esos patrones con calma y sin juicios — y desde esa comprensión construimos el cambio real.",
-      cta: "Reservar consulta inicial"
+    "cta": {
+      "touch": "Get in touch",
+      "whatsapp": "WhatsApp",
+      "call": "Call",
+      "more": "Learn more",
+      "back": "All therapy options"
     },
-    help: {
-      eyebrow: "Acompañamiento",
-      title: "Puedo ayudarte si experimentas…",
-      lead: "Un espacio seguro para explorar lo que está pasando, encontrar claridad y construir herramientas reales.",
-      items: [
-        "Conflictos de pareja",
-        "Problemas de comunicación",
-        "Distancia emocional",
-        "Ansiedad",
-        "Baja autoestima",
-        "Dificultades en citas y relaciones modernas",
-        "Miedo al compromiso",
-        "Patrones relacionales negativos repetidos",
-        "Prevención de ruptura o divorcio",
-        "Dificultad de regulación emocional",
-        "Trauma relacional pasado",
-        "Dificultad para construir vínculos sanos",
-        "Adaptación de expatriados y migrantes",
-        "Retos en relaciones multiculturales"
-      ]
+    "home": {
+      "subtitle": "Psychotherapist specialising in relationships and the pressures of modern life",
+      "tagline": "Understand. Change. Feel better.",
+      "intro": "Therapy helps you make sense of what you're experiencing, make meaningful changes and build a more satisfying life.",
+      "ctaText": "Not sure whether therapy is right for you? Taking the first step can be difficult. Sometimes, one conversation is enough to help you see things more clearly."
     },
-    about: {
-      eyebrow: "Sobre KONEKTOPIA",
-      title: "Me presento",
-      tag: "Barcelona · Online",
-      p1: "Psicoterapeuta con experiencia, formación en Psicología, Terapia de Pareja y Terapia Cognitivo-Conductual. Mi misión es aliviar el sufrimiento emocional que impide vivir una vida plena y satisfactoria.",
-      p2: "Acompaño a personas en dificultades relacionales y de comunicación. Trabajo con problemas en el ámbito de las citas y relaciones modernas, conflictos de pareja y prevención de la ruptura o divorcio. También abordo ansiedad, baja autoestima, experiencias relacionales negativas, dificultades de regulación emocional y problemas para construir o mantener vínculos sanos.",
-      p3: "Como persona emigrante, acompaño también a expatriados, migrantes y personas de diferentes culturas en procesos de adaptación, identidad, aceptación y equilibrio entre valores de origen y del país de acogida.",
-      p4: "Mis clientes valoran mi experiencia, compasión, sentido del humor, pragmatismo y capacidad de inspirar cambios reales.",
-      educationTitle: "Formación profesional",
-      education: "Graduada en Psicología en Francia. Estudios de doctorado y máster de investigación en Psicología Clínica y de la Salud por la Universidad de Barcelona. Especialización en Terapia Cognitivo-Conductual por la School of Cognitive Behavioural Psychotherapy, Universidad SWPS de Varsovia. Curso de Método Gottman en terapia de pareja. Máster en Sexología Clínica y Terapia de Pareja por el Instituto de la Pareja.",
-      signature: "— Sonia Foder, KONEKTOPIA"
-    },
-    therapy: {
-      eyebrow: "Terapia",
-      title: "Terapia de pareja & terapia individual",
-      lead: "Dos caminos diferentes, una misma vocación: que la relación contigo y con quienes te rodean sea más sana, consciente y satisfactoria.",
-      goalsTitle: "Objetivos frecuentes",
-      common: {
-        whenTitle: "¿Cuándo empezar?",
-        howTitle: "¿Cómo empieza el proceso?",
-        expectTitle: "¿Qué puedes esperar?"
+    "card": {
+      "individual": {
+        "title": "Individual therapy",
+        "text": "Understand recurring patterns, work through emotional difficulties and develop new ways forward."
       },
-      couples: {
-        eyebrow: "Para parejas",
-        title: "Terapia de pareja",
-        when: "Cuando la comunicación se ha vuelto difícil, cuando los conflictos se repiten o cuando estáis tomando decisiones importantes y queréis hacerlo con más claridad. No hace falta esperar a una crisis.",
-        how: "Una primera sesión conjunta para entender vuestra historia, las dificultades actuales y los objetivos compartidos. A partir de ahí construimos un plan adaptado a vuestra pareja.",
-        expect: "Un espacio seguro, sin juicios, en el que cada parte puede ser escuchada. Herramientas prácticas para comunicación, gestión del conflicto e intimidad.",
-        goals: ["Comunicación", "Confianza", "Conflicto", "Intimidad", "Toma de decisiones", "Prevención de ruptura"]
+      "couples": {
+        "title": "Couples therapy",
+        "text": "Improve communication, work through conflicts and relationship crises. Rebuild connection and intimacy."
       },
-      individual: {
-        eyebrow: "Para ti",
-        title: "Terapia individual",
-        when: "Cuando sientes que algo se repite, que la ansiedad o la autoexigencia te ocupan demasiado, o cuando quieres comprenderte mejor y vivir con más coherencia.",
-        how: "Una primera consulta para explorar tu situación, tu historia y lo que te gustaría cambiar. Acordamos objetivos realistas y un ritmo que funcione para ti.",
-        expect: "Acompañamiento profesional, herramientas prácticas y una mirada compasiva pero honesta. El cambio se construye paso a paso.",
-        goals: ["Autoconocimiento", "Reducir la ansiedad", "Regulación emocional", "Autoestima", "Patrones relacionales"]
+      "cultures": {
+        "title": "Life across cultures",
+        "text": "Navigate cultural differences, adapt to life between countries and build fulfilling relationships."
       }
     },
-    sessions: {
-      eyebrow: "Proceso",
-      title: "Estructura de las sesiones",
-      lead: "Un proceso claro, flexible y respetuoso con tu ritmo.",
-      steps: [
-        { t: "Consulta inicial", d: "Una primera conversación para conocernos, entender qué estás viviendo y decidir juntos si es un buen ajuste." },
-        { t: "Comprender la situación", d: "Exploramos contexto, historia, momentos clave y lo que sostiene la dificultad hoy." },
-        { t: "Definir objetivos", d: "Acordamos objetivos realistas y significativos para ti o para la pareja." },
-        { t: "Explorar patrones", d: "Identificamos creencias, emociones y conductas que se repiten y bloquean el cambio." },
-        { t: "Herramientas prácticas", d: "Aprendes recursos concretos basados en la psicología y la terapia cognitivo-conductual." },
-        { t: "Revisar el progreso", d: "Revisamos avances, dudas y obstáculos con honestidad y sin prisas." },
-        { t: "Ajustar el proceso", d: "Adaptamos el ritmo, los objetivos y el enfoque a tu momento vital." }
-      ],
-      expectTitle: "Qué puedes esperar",
-      expect: [
-        "Conversación segura y respetuosa",
-        "Herramientas psicológicas prácticas",
-        "Claridad emocional",
-        "Mejor comunicación",
-        "Sin juicios",
-        "Confidencialidad",
-        "Un proceso realista, no resultados inmediatos"
-      ]
+    "tags": [
+      "Solution-oriented",
+      "Tailored to you",
+      "Online",
+      "In Spanish · English · Polish"
+    ],
+    "therapy": {
+      "title": "Therapy",
+      "intro": "[Your text: a short introduction to how you work]",
+      "sessionTitle": "How an online session works",
+      "sessionText": "[Your text: length, frequency, platform and how to book]"
     },
-    services: {
-      eyebrow: "Servicios",
-      title: "Servicios y precios",
-      lead: "Sesiones individuales y de pareja, talleres y cursos. Elige el formato que mejor se adapta a ti.",
-      group: { sessions: "Sesiones", workshops: "Talleres y cursos", inPerson: "Formato presencial", corporate: "Para empresas" },
-      badge: { online: "Online", inPerson: "Presencial", pack: "Pack", group: "Grupo", corp: "Empresas", inc: "Ebook incluido" },
-      meta: { duration: "Duración", frequency: "Frecuencia", weekly: "Semanal", groupSize: "Grupo", sessions: "Sesiones", cities: "Ciudades", format: "Formato", includes: "Incluye", perPerson: "por persona", perCouple: "por pareja" },
-      bookWa: "Reservar por WhatsApp",
-      contactWa: "Escribir por WhatsApp",
-      note: "Consulta inicial gratuita · Sin compromiso · Respuesta en menos de 24h",
-      items: [
-        { t: "Sesión de pareja online", d: "Trabajo conjunto centrado en comunicación, conflictos e intimidad." },
-        { t: "Sesión individual online", d: "Terapia uno a uno para ansiedad, autoestima y patrones emocionales." },
-        { t: "Workshop para singles", sub: "Dating y relaciones modernas", d: "Grupos reducidos para entender el mundo de las citas y construir relaciones más sanas.", topics: ["Navegación de apps de citas", "Primeras citas y comunicación", "Resiliencia al rechazo", "Habilidades relacionales"] },
-        { t: "Consultoría pre-compromiso / prematrimonial", sub: "Online", d: "Preparación para relación estable, compromiso, pareja de hecho o matrimonio. Memoria de curso – ebook incluido.", sessions: "5 × 60 min (pareja)" },
-        { t: "Curso pre-compromiso / prematrimonial", sub: "Presencial", d: "Preparación para parejas antes de comprometerse, pareja de hecho o matrimonio.", cities: "Barcelona · Girona · Tarragona · Valencia · Jerez" },
-        { t: "Talleres para empresas", sub: "A medida", d: "Diseñamos el contenido y los objetivos según las necesidades de tu equipo.", topics: ["Comunicación en pareja", "Resolución de conflictos", "Habilidades relacionales", "Otros temas relacionados"] }
-      ]
+    "page": {
+      "p1": "[Your text: who this therapy is for]",
+      "p2": "[Your text: how we work together]"
     },
-    workshops: {
-      eyebrow: "Talleres",
-      title: "Talleres presenciales y online",
-      lead: "Espacios de aprendizaje vivencial sobre relaciones, comunicación y compromiso consciente.",
-      topics: ["Educación relacional", "Comunicación", "Prevención del conflicto", "Intimidad emocional", "Compromiso consciente", "Amor y citas modernas"],
-      locationsTitle: "Disponibles en Catalunya y Andalucía",
-      locationsDesc: "Talleres y cursos presenciales en ciudades seleccionadas. Calendario actualizado según la demanda.",
-      cta: "Pregunta por el próximo taller"
+    "about": {
+      "title": "About",
+      "p1": "[Your text: who you are and your story]",
+      "p2": "[Your text: training and qualifications]"
     },
-    premarital: {
-      eyebrow: "Curso especial",
-      title: "Curso pre compromiso / prematrimonial",
-      p1: "Para parejas que están considerando un paso importante — convivir, casarse, formar una familia o tomar decisiones a largo plazo.",
-      p2: "Trabajamos expectativas, valores, estilo de comunicación, patrones de conflicto, intimidad, planes familiares, dinero, estilo de vida y necesidades emocionales.",
-      p3: "Es un proceso preventivo, práctico y profundamente centrado en la relación. Disponible en formato online o presencial.",
-      cta: "Más información",
-      cta2: "Ver formatos"
+    "contact": {
+      "title": "Contact",
+      "text": "Write to me on WhatsApp or give me a call, whichever feels easier."
     },
-    singles: {
-      eyebrow: "Para singles",
-      title: "Para singles",
-      lead: "Acompañamiento relacional para quienes están solteros y quieren entenderse, sanar y elegir mejor.",
-      items: [
-        { t: "Patrones de citas", d: "Reconocer qué tipo de relaciones eliges y por qué." },
-        { t: "Disponibilidad emocional", d: "Identificar si estás realmente disponible para una relación sana." },
-        { t: "Autoestima en relaciones", d: "Construir un sentido de valor que no dependa del otro." },
-        { t: "Elegir parejas más sanas", d: "Aprender a leer señales y filtrar desde el principio." },
-        { t: "Romper patrones repetitivos", d: "Salir del bucle de las mismas historias con personas diferentes." },
-        { t: "Apoyo en citas modernas", d: "Apps, ghosting, ambigüedad: navegar el panorama actual con criterio." }
-      ]
+    "footer": {
+      "tagline": "Online psychotherapy in English, Spanish and Polish.",
+      "exploreTitle": "Explore",
+      "contactTitle": "Contact",
+      "crisis": "This website does not offer emergency support. If you are in immediate danger, please contact your local emergency services (in Spain, dial 112).",
+      "privacy": "Privacy policy",
+      "legal": "Legal notice",
+      "cookies": "Cookies policy",
+      "legalTitle": "Legal"
     },
-    resources: {
-      eyebrow: "Recursos",
-      title: "Recursos para tus relaciones",
-      lead: "Artículos, ebooks, cursos y recomendaciones. Próximamente actualizaremos esta sección con contenido descargable.",
-      tabs: ["Artículos", "Ebooks", "Cursos", "Libros, películas y series"],
-      cat: { article: "Artículo", ebook: "Ebook", course: "Curso", book: "Libro recomendado", film: "Película / Serie" },
-      soon: "Próximamente",
-      articles: [
-        "¿Cómo saber si necesitamos terapia de pareja?",
-        "Cómo comunicarte mejor en pareja",
-        "Miedo al compromiso",
-        "Distancia emocional en la relación",
-        "Cómo reconstruir la confianza",
-        "Ansiedad en las relaciones",
-        "Cómo dejar de repetir patrones tóxicos",
-        "Preguntas prematrimoniales esenciales",
-        "Volver a las citas después de una ruptura",
-        "Límites saludables en las relaciones"
-      ],
-      ebooks: [
-        "Guía para parejas que quieren crecer juntas",
-        "Cuaderno de comunicación consciente",
-        "Citas modernas: una guía honesta"
-      ],
-      courses: [
-        "Mini-curso: bases de la comunicación en pareja",
-        "Curso pre compromiso (auto-guiado)"
-      ],
-      media: [
-        "Lecturas sobre apego y vínculos",
-        "Historias para reflexionar sobre el amor",
-        "Recursos sobre amor moderno"
-      ]
-    },
-    reviews: {
-      eyebrow: "Testimonios",
-      title: "Voces de clientes",
-      placeholder: "Los testimonios de clientes se añadirán aquí después de la oportuna aprobación y siempre respetando la confidencialidad.",
-      q1: "— Espacio reservado para testimonio —",
-      q2: "— Espacio reservado para testimonio —",
-      q3: "— Espacio reservado para testimonio —"
-    },
-    contact: {
-      eyebrow: "Contacto",
-      title: "Hablemos",
-      intro: "Llámame o escríbeme por WhatsApp para una breve consulta inicial, sin compromiso. Podrás contarme brevemente tu situación, dificultad o el motivo por el que buscas ayuda. Hablaremos sobre lo que necesitas y cómo podría ayudarte. Si considero que otro tipo de apoyo o un profesional diferente podría ajustarse mejor a tu situación, te orientaré sobre los siguientes pasos o posibles recursos.",
-      phone: "Teléfono",
-      address: "Direcciones",
-      callCta: "Llamar ahora",
-      waCta: "Escribir por WhatsApp",
-      formTitle: "Escríbeme un mensaje",
-      formHelp: "Este formulario es una versión visual. Conéctalo a tu servicio preferido (Formspree, Netlify Forms, email, etc.) antes de publicar.",
-      form: {
-        name: "Nombre",
-        email: "Email",
-        topic: "Motivo",
-        topics: ["Terapia individual", "Terapia de pareja", "Curso prematrimonial", "Taller / grupo", "Otro"],
-        message: "Mensaje",
-        privacy: "He leído y acepto la política de privacidad.",
-        submit: "Enviar mensaje",
-        status: ""
+    "legal": {
+      "title": "Legal information",
+      "lead": "This page contains the privacy policy, legal notice and cookies policy of KONEKTOPIA. The content published here is provisional and will be reviewed by a legal advisor before the official launch of the site.",
+      "provisional": "Draft — pending legal review",
+      "privacy": {
+        "p1": "KONEKTOPIA respects your privacy. The personal data you provide (name, email, phone, message) is used exclusively to respond to your enquiry and, where applicable, to manage the service you request.",
+        "p2": "We do not share your data with third parties unless legally obliged. You may exercise your rights of access, rectification, deletion, objection, limitation and portability by sending a message through the contact page.",
+        "p3": "The legal basis for processing is your consent when contacting us. We retain data for the time necessary to manage the professional relationship and fulfil applicable legal obligations.",
+        "note": "This text is provisional. It will be replaced by a complete privacy policy, reviewed by a legal professional, before launch."
       },
-      crisisTitle: "Nota importante:",
-      crisis: "Esta web no ofrece atención de urgencia. Si tú o alguien cercano estáis en peligro inmediato, contactad con los servicios de emergencia locales (en España, 112) o con una línea de ayuda especializada."
-    },
-    footer: {
-      servicesTitle: "Servicios",
-      contactTitle: "Contacto",
-      legalTitle: "Legal",
-      privacy: "Política de privacidad",
-      legal: "Aviso legal",
-      cookies: "Política de cookies",
-      legalNote: "Las páginas legales son provisionales y deben revisarse antes del lanzamiento.",
-      byline: "Psicoterapia y acompañamiento relacional",
-
-      /* — Redesigned homepage additions — */
-      tagline: "Psicoterapia online y terapia de pareja. Barcelona y atención online internacional.",
-      langs: "Español · English · Polski",
-      langsLabel: "Idiomas:",
-      exploreTitle: "Explorar",
-      crisis: "Esta web no ofrece atención de urgencia. Si estás en peligro inmediato, contacta con los servicios de emergencia locales (en España, 112).",
-      meta: "Barcelona, España · Online internacional"
-    },
-
-    /* === Redesigned homepage blocks === */
-    cta: {
-      freeConsult: "Consulta inicial gratuita",
-      bookWa: "Reservar por WhatsApp",
-      bookShort: "Reservar",
-      explore: "Explorar servicios →",
-      learnMore: "Más información →",
-      aboutMore: "Conoce más sobre mí",
-      otherWays: "Otras formas de contacto →"
-    },
-    legal: {
-      title: "Información legal",
-      lead: "Esta página recoge la política de privacidad, el aviso legal y la política de cookies de KONEKTOPIA. El contenido aquí publicado es provisional y será revisado por un asesor legal antes del lanzamiento oficial del sitio.",
-      provisional: "Borrador — pendiente de revisión legal",
-      privacy: {
-        p1: "KONEKTOPIA respeta tu privacidad. Los datos personales que nos facilites (nombre, email, teléfono, mensaje) se utilizan exclusivamente para responder a tu consulta y, en su caso, gestionar el servicio que solicites.",
-        p2: "No compartimos tus datos con terceros, salvo obligación legal. Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviando un mensaje a través de la página de contacto.",
-        p3: "La base legal del tratamiento es tu consentimiento al contactar con nosotros. Conservamos los datos durante el tiempo necesario para gestionar la relación profesional y cumplir con las obligaciones legales aplicables.",
-        note: "Este texto es provisional. Será sustituido por una política de privacidad completa, revisada por un profesional legal, antes del lanzamiento."
+      "legal": {
+        "p1": "Site owner: Sonia Foder · KONEKTOPIA, online psychotherapy. Website: konektopia.com. Contact: +34 684 00 32 37 · konektopia@gmail.com.",
+        "p2": "Access to this site is free and use implies acceptance of these conditions. KONEKTOPIA reserves the right to modify the site content without prior notice.",
+        "p3": "Professional services are governed by the therapeutic contract signed separately. This site does not constitute an emergency service and does not replace emergency medical or psychological care.",
+        "note": "This text is provisional. It will be replaced by a complete legal notice, reviewed by a legal professional, before launch."
       },
-      legal: {
-        p1: "Titular del sitio: KONEKTOPIA · Sonia Foder. Sitio web: konektopia.com. Direcciones: c/ Nicaragua 100, 08029 Barcelona y c/ Marti i Blasi 6, 08905 Hospitalet de Llobregat. Contacto: +34 684 00 32 37.",
-        p2: "El acceso a esta web es gratuito y su uso implica la aceptación de las presentes condiciones. KONEKTOPIA se reserva el derecho a modificar el contenido del sitio sin previo aviso.",
-        p3: "Los servicios profesionales se rigen por el contrato terapéutico que se firma de forma independiente. Esta web no constituye un servicio de urgencia ni sustituye atención médica o psicológica de emergencia.",
-        note: "Este texto es provisional. Será sustituido por un aviso legal completo, revisado por un profesional legal, antes del lanzamiento."
-      },
-      cookies: {
-        p1: "Este sitio utiliza únicamente cookies técnicas estrictamente necesarias para el funcionamiento de la web (por ejemplo, recordar tu idioma preferido). No utilizamos cookies de seguimiento ni de publicidad sin tu consentimiento.",
-        p2: "Si en el futuro incorporamos herramientas de analítica, te informaremos previamente y solicitaremos tu consentimiento explícito mediante un banner de cookies conforme a la normativa vigente.",
-        p3: "Puedes configurar tu navegador para rechazar o eliminar cookies en cualquier momento. La preferencia de idioma se guarda en tu dispositivo mediante localStorage del navegador.",
-        note: "Este texto es provisional. Será sustituido por una política de cookies completa, revisada por un profesional legal, antes del lanzamiento."
+      "cookies": {
+        "p1": "This site only uses strictly necessary technical cookies for the operation of the web (for example, to remember your preferred language). We do not use tracking or advertising cookies without your consent.",
+        "p2": "If in the future we incorporate analytics tools, we will inform you in advance and request your explicit consent via a cookie banner in accordance with current regulations.",
+        "p3": "You can configure your browser to reject or delete cookies at any time. Language preference is stored on your device via browser localStorage.",
+        "note": "This text is provisional. It will be replaced by a complete cookies policy, reviewed by a legal professional, before launch."
       }
-    },
-    problems: {
-      eyebrow: "Lo que abordamos",
-      title: "Problemas que resolvemos juntos",
-      lead: "Cada dificultad merece su espacio, atención y cuidado. Estos son los temas con los que más trabajo.",
-      items: [
-        "Conflictos de pareja",
-        "Problemas de comunicación",
-        "Distancia emocional",
-        "Ansiedad",
-        "Baja autoestima",
-        "Dificultades en citas modernas",
-        "Miedo al compromiso",
-        "Patrones relacionales repetidos",
-        "Prevención de ruptura o divorcio",
-        "Dependencia emocional",
-        "Recuperación tras una infidelidad",
-        "Bajo deseo o dificultades de intimidad",
-        "Soledad",
-        "Relaciones multiculturales",
-        "Adaptación de expatriados",
-        "Construir vínculos sanos"
-      ]
-    },
-    pathways: {
-      eyebrow: "Cómo te puedo acompañar",
-      title: "Cinco caminos, una misma intención",
-      items: [
-        { t: "Terapia de pareja",        d: "Comunicación, conflicto, intimidad y decisiones importantes." },
-        { t: "Terapia individual",       d: "Ansiedad, autoestima, regulación emocional, patrones relacionales." },
-        { t: "Talleres",                  d: "Comunicación, intimidad emocional, amor moderno. Online y presencial." },
-        { t: "Curso prematrimonial",     d: "Para parejas que valoran un paso importante con conciencia." },
-        { t: "Para singles",              d: "Entender patrones, elegir mejor, sanar el camino hacia el otro." },
-        { t: "Recursos",                  d: "Artículos, ebooks y cursos para acompañar tu proceso." }
-      ]
-    },
-    aboutTeaser: {
-      title: "Acompañar, comprender, transformar",
-      p1: "Psicoterapeuta con formación en Psicología, Terapia de Pareja y Terapia Cognitivo-Conductual. Acompaño a personas y parejas en su proceso de comprensión, regulación emocional y construcción de vínculos sanos.",
-      p2: "Como persona emigrante, trabajo especialmente con expatriados, migrantes y parejas multiculturales.",
-      quote: "Mi misión es aliviar el sufrimiento emocional que impide vivir una vida plena y satisfactoria.",
-      sign: "— Sonia Foder"
-    },
-    process: {
-      eyebrow: "Cómo empezar",
-      title: "Tu camino, sencillo y claro",
-      lead: "Cinco pasos pensados con cuidado para que sepas qué esperar desde el primer momento.",
-      steps: [
-        { t: "Contacto",                          d: "Me escribes por WhatsApp con una breve descripción de lo que te trae aquí." },
-        { t: "Consulta inicial gratuita",         d: "Hablamos sin compromiso para conocernos y entender qué necesitas." },
-        { t: "Entendemos la situación",           d: "Exploramos contexto, historia y objetivos con calma y honestidad." },
-        { t: "Elegimos el apoyo adecuado",        d: "Terapia individual, de pareja, taller o curso — lo que mejor encaje." },
-        { t: "Empezamos",                         d: "Comienza el proceso con un ritmo respetuoso para ti." }
-      ]
-    },
-    finalCta: {
-      eyebrow: "Empezar",
-      title: "¿Listx para dar el primer paso?",
-      lead: "La consulta inicial es gratuita y sin compromiso. Cuéntame brevemente qué buscas y te escribo en menos de 24h.",
-      tiny: "+34 684 00 32 37 · Respuesta en menos de 24h"
-    },
-
-    float: { wa: "WhatsApp" }
+    }
   },
-
-  en: {
-    meta: {
-      title: "KONEKTOPIA | Psychotherapy, Couples Therapy & Relationship Counselling in Barcelona",
-      description: "KONEKTOPIA offers online individual therapy, couples therapy, Cognitive Behavioural Therapy, premarital courses, and relationship workshops in Spanish, English, and Polish. Based in Barcelona, with international online sessions.",
-      ogTitle: "KONEKTOPIA | Psychotherapy & Couples Therapy in Barcelona",
-      ogDescription: "Online individual therapy, couples therapy, CBT, premarital courses and relationship workshops. Barcelona + international online sessions."
+  "es": {
+    "meta": {
+      "title": "KONEKTOPIA · Sonia Foder · Psicoterapia online",
+      "description": "Psicoterapia online con Sonia Foder: terapia individual, terapia de pareja y vivir entre culturas. En español, inglés y polaco."
     },
-    a11y: { skip: "Skip to main content" },
-    nav: {
-      home: "Home",
-      help: "How I help", about: "About", therapy: "Therapy",
-      services: "Services", workshops: "Workshops", premarital: "Premarital course",
-      singles: "For singles", resources: "Resources", contact: "Contact",
-      cta: "Contact me"
+    "a11y": {
+      "skip": "Saltar al contenido principal"
     },
-    hero: {
-      badge: "Online · Barcelona · International",
-      intro: "Psychotherapy, couples therapy and relationship workshops. A warm, professional and judgement-free space to begin.",
-      tiny: "Reply within 24h · No commitment",
-      eyebrow: "Psychotherapy · Couples Therapy · Online & Barcelona",
-      welcome: "Welcome to",
-      motto: "The quality of your relationships defines the quality of your life.",
-      description: "Psychotherapy. Individual and couples therapy online. Cognitive Behavioural Therapy. Pre-commitment workshops and courses. Based in Barcelona, with international online sessions.",
-      ctaPrimary: "Contact me",
-      ctaSecondary: "Services",
-      mottoHtml: "The quality of your relationships defines<br><mark>the quality of your life</mark>.",
-      features: [
-        "Confidential & professional",
-        "Flexible & online",
-        "Holistic & tailored"
-      ],
-      announce: "Free initial consultation · limited slots",
-      promptPlaceholder: "Briefly, what brings you here today?",
-      promptAria: "Briefly, what brings you here today",
-      promptSend: "Send",
-      promptHint: "Sending opens WhatsApp with your message ready. No commitment.",
-      promptIntro: "Hi, I'd like to book an initial consultation.",
-      suggestions: [
-        "We have relationship conflicts",
-        "I want to start individual therapy",
-        "We're considering a premarital course",
-        "Anxiety or low self-esteem",
-        "I'm an expat / migrant"
-      ],
-      trust: ["Online therapy", "Couples therapy", "Individual therapy", "Workshops", "Barcelona", "International online sessions"]
+    "nav": {
+      "home": "Inicio",
+      "therapy": "Terapia",
+      "onlyYou": "Solo tú",
+      "forBoth": "Para los dos",
+      "about": "Sobre mí",
+      "contact": "Contacto"
     },
-    approach: {
-      eyebrow: "How we work",
-      title: "Understand before you change",
-      p1: "Psychotherapy starts with curiosity: why we think what we think, feel what we feel, and relate the way we do.",
-      p2: "Together we look at those patterns calmly and without judgement — and from that understanding, real change is built.",
-      cta: "Book an initial consultation"
+    "cta": {
+      "touch": "Escríbeme",
+      "whatsapp": "WhatsApp",
+      "call": "Llamar",
+      "more": "Saber más",
+      "back": "Todas las opciones"
     },
-    help: {
-      eyebrow: "Support",
-      title: "I can help you if you are experiencing…",
-      lead: "A safe space to explore what is happening, find clarity and build real tools.",
-      items: [
-        "Relationship conflicts",
-        "Communication problems",
-        "Emotional distance",
-        "Anxiety",
-        "Low self-esteem",
-        "Difficulties in dating and modern relationships",
-        "Fear of commitment",
-        "Repeating negative relationship patterns",
-        "Separation or divorce prevention",
-        "Emotional regulation difficulties",
-        "Past relational trauma",
-        "Difficulties building or maintaining healthy bonds",
-        "Expat / migrant adaptation, identity and belonging",
-        "Multicultural relationship challenges"
-      ]
+    "home": {
+      "subtitle": "Psicoterapeuta especializada en relaciones y en las presiones de la vida moderna",
+      "tagline": "Comprender. Cambiar. Sentirte mejor.",
+      "intro": "La terapia te ayuda a dar sentido a lo que estás viviendo, a hacer cambios significativos y a construir una vida más satisfactoria.",
+      "ctaText": "¿No sabes si la terapia es para ti? Dar el primer paso puede ser difícil. A veces, una sola conversación basta para ver las cosas con más claridad."
     },
-    about: {
-      eyebrow: "About KONEKTOPIA",
-      title: "About me",
-      tag: "Barcelona · Online",
-      p1: "Experienced psychotherapist with training in Psychology, Couples Therapy, and Cognitive Behavioural Therapy. My mission is to reduce emotional suffering that prevents people from living a full and meaningful life.",
-      p2: "I support individuals with relationship and communication difficulties, modern dating challenges, couple conflicts, and prevention of separation or divorce. I also work with anxiety, low self-esteem, past relational trauma, emotional regulation difficulties, and challenges in building or maintaining healthy connections.",
-      p3: "As an immigrant myself, I also support expats, migrants, and multicultural individuals navigating adaptation, identity, acceptance, and balancing values of origin with those of the host country.",
-      p4: "Clients value my experience, compassion, humour, pragmatism, and ability to inspire real change.",
-      educationTitle: "Professional education",
-      education: "Degree in Psychology in France. Doctoral-level studies and research master's training in Clinical and Health Psychology at the University of Barcelona. Specialisation in Cognitive Behavioural Therapy at the School of Cognitive Behavioural Psychotherapy, SWPS University, Warsaw. Gottman Method couple therapy course. Master's degree in Clinical Sexology and Couples Therapy from Instituto de la Pareja.",
-      signature: "— Sonia Foder, KONEKTOPIA"
-    },
-    therapy: {
-      eyebrow: "Therapy",
-      title: "Couples therapy & individual therapy",
-      lead: "Two different paths, the same purpose: making your relationship with yourself and with others healthier, more conscious and more fulfilling.",
-      goalsTitle: "Common goals",
-      common: {
-        whenTitle: "When is the right moment to start?",
-        howTitle: "How does the process begin?",
-        expectTitle: "What can you expect?"
+    "card": {
+      "individual": {
+        "title": "Terapia individual",
+        "text": "Comprende los patrones que se repiten, trabaja las dificultades emocionales y encuentra nuevos caminos."
       },
-      couples: {
-        eyebrow: "For couples",
-        title: "Couples therapy",
-        when: "When communication has become hard, when conflicts keep repeating, or when you are making important decisions and want more clarity. You don't need to wait for a crisis.",
-        how: "A first joint session to understand your story, current difficulties and shared goals. From there we build a plan adapted to your couple.",
-        expect: "A safe, non-judgemental space where each side can be heard. Practical tools for communication, conflict and intimacy.",
-        goals: ["Communication", "Trust", "Conflict", "Intimacy", "Decision-making", "Breakup prevention"]
+      "couples": {
+        "title": "Terapia de pareja",
+        "text": "Mejora la comunicación, trabaja los conflictos y las crisis de pareja. Recupera la conexión y la intimidad."
       },
-      individual: {
-        eyebrow: "For you",
-        title: "Individual therapy",
-        when: "When something feels stuck or repeated, when anxiety or self-demand take up too much space, or when you want to understand yourself better and live with more coherence.",
-        how: "A first consultation to explore your situation, your story and what you want to change. We agree on realistic goals and a pace that works for you.",
-        expect: "Professional support, practical tools and a compassionate but honest perspective. Change is built step by step.",
-        goals: ["Self-understanding", "Reduce anxiety", "Emotional regulation", "Self-esteem", "Relationship patterns"]
+      "cultures": {
+        "title": "Vivir entre culturas",
+        "text": "Gestiona las diferencias culturales, adáptate a la vida entre países y construye relaciones plenas."
       }
     },
-    sessions: {
-      eyebrow: "Process",
-      title: "Session structure",
-      lead: "A clear, flexible process that respects your pace.",
-      steps: [
-        { t: "Initial consultation", d: "A first conversation to get to know each other, understand what you are going through and decide together if it's a good fit." },
-        { t: "Understanding the situation", d: "We explore context, history, key moments and what holds the difficulty in place today." },
-        { t: "Defining goals", d: "We agree on realistic and meaningful goals for you or for the couple." },
-        { t: "Exploring patterns", d: "We identify beliefs, emotions and behaviours that repeat and block change." },
-        { t: "Practical tools", d: "You learn concrete resources grounded in psychology and cognitive behavioural therapy." },
-        { t: "Reviewing progress", d: "We honestly review progress, doubts and obstacles, without rushing." },
-        { t: "Adjusting the process", d: "We adapt the pace, goals and approach to your current life stage." }
-      ],
-      expectTitle: "What to expect",
-      expect: [
-        "Safe, respectful conversation",
-        "Practical psychological tools",
-        "Emotional clarity",
-        "Better communication",
-        "No judgement",
-        "Confidentiality",
-        "A realistic process, not instant results"
-      ]
+    "tags": [
+      "Orientada a soluciones",
+      "Adaptada a ti",
+      "Online",
+      "En español · inglés · polaco"
+    ],
+    "therapy": {
+      "title": "Terapia",
+      "intro": "[Tu texto: una breve introducción a tu forma de trabajar]",
+      "sessionTitle": "Cómo es una sesión online",
+      "sessionText": "[Tu texto: duración, frecuencia, plataforma y cómo reservar]"
     },
-    services: {
-      eyebrow: "Services",
-      title: "Services & prices",
-      lead: "Individual and couples sessions, workshops and courses. Choose the format that suits you best.",
-      group: { sessions: "Sessions", workshops: "Workshops & courses", inPerson: "In-person format", corporate: "For organisations" },
-      badge: { online: "Online", inPerson: "In person", pack: "Pack", group: "Group", corp: "Corporate", inc: "Ebook included" },
-      meta: { duration: "Duration", frequency: "Frequency", weekly: "Weekly", groupSize: "Group", sessions: "Sessions", cities: "Cities", format: "Format", includes: "Includes", perPerson: "per person", perCouple: "per couple" },
-      bookWa: "Book via WhatsApp",
-      contactWa: "Message via WhatsApp",
-      note: "Free initial consultation · No commitment · Reply within 24h",
-      items: [
-        { t: "Couples online session", d: "Joint work focused on communication, conflict and intimacy." },
-        { t: "Individual online session", d: "One-to-one therapy for anxiety, self-esteem and emotional patterns." },
-        { t: "Workshop for singles", sub: "Dating & modern relationships", d: "Small groups to navigate modern dating and build healthier relationship patterns.", topics: ["Dating app navigation", "First dates and communication", "Building resilience to rejection", "Relationship skills development"] },
-        { t: "Pre-commitment / premarital counselling", sub: "Online", d: "Focus on preparing for committed relationships, cohabitation, or marriage. Ebook included.", sessions: "5 × 60 min (couples)" },
-        { t: "Pre-commitment / premarital workshop", sub: "In person", d: "For couples preparing for commitment, cohabitation, or marriage.", cities: "Barcelona · Girona · Tarragona · Valencia · Jerez" },
-        { t: "Corporate workshops", sub: "Tailored programs", d: "We design content and objectives to fit your team's specific needs.", topics: ["Relationship communication skills", "Conflict resolution", "Interpersonal skills", "Other related topics"] }
-      ]
+    "page": {
+      "p1": "[Tu texto: para quién es esta terapia]",
+      "p2": "[Tu texto: cómo trabajamos juntos]"
     },
-    workshops: {
-      eyebrow: "Workshops",
-      title: "In-person and online workshops",
-      lead: "Experiential learning spaces on relationships, communication and conscious commitment.",
-      topics: ["Relationship education", "Communication", "Conflict prevention", "Emotional intimacy", "Conscious commitment", "Modern love and dating"],
-      locationsTitle: "Available across Catalonia and Andalusia",
-      locationsDesc: "In-person workshops and courses in selected cities. Calendar updated based on demand.",
-      cta: "Ask about the next workshop"
+    "about": {
+      "title": "Sobre mí",
+      "p1": "[Tu texto: quién eres y tu historia]",
+      "p2": "[Tu texto: formación y titulaciones]"
     },
-    premarital: {
-      eyebrow: "Special course",
-      title: "Pre-commitment / premarital course",
-      p1: "For couples considering an important step — moving in together, marriage, family or long-term decisions.",
-      p2: "We work on expectations, values, communication style, conflict patterns, intimacy, family plans, money, lifestyle and emotional needs.",
-      p3: "A preventive, practical and deeply relationship-focused process. Available online or in workshop format.",
-      cta: "More information",
-      cta2: "See formats"
+    "contact": {
+      "title": "Contacto",
+      "text": "Escríbeme por WhatsApp o llámame, como te resulte más fácil."
     },
-    singles: {
-      eyebrow: "For singles",
-      title: "For singles",
-      lead: "Relationship counselling for those who are single and want to understand themselves, heal and choose better.",
-      items: [
-        { t: "Dating patterns", d: "Recognise what kind of relationships you choose and why." },
-        { t: "Emotional availability", d: "Identify whether you are truly available for a healthy relationship." },
-        { t: "Self-worth in relationships", d: "Build a sense of value that doesn't depend on the other." },
-        { t: "Choosing healthier partners", d: "Learn to read signals and filter from the start." },
-        { t: "Breaking repetitive patterns", d: "Step out of the same loop with different people." },
-        { t: "Modern dating support", d: "Apps, ghosting, ambiguity: navigate today's landscape with clarity." }
-      ]
+    "footer": {
+      "tagline": "Psicoterapia online en español, inglés y polaco.",
+      "exploreTitle": "Explorar",
+      "contactTitle": "Contacto",
+      "crisis": "Esta web no ofrece atención de urgencia. Si estás en peligro inmediato, contacta con los servicios de emergencia locales (en España, 112).",
+      "privacy": "Política de privacidad",
+      "legal": "Aviso legal",
+      "cookies": "Política de cookies",
+      "legalTitle": "Legal"
     },
-    resources: {
-      eyebrow: "Resources",
-      title: "Resources for your relationships",
-      lead: "Articles, ebooks, courses and recommendations. We will soon update this section with downloadable content.",
-      tabs: ["Articles", "Ebooks", "Courses", "Books, films & series"],
-      cat: { article: "Article", ebook: "Ebook", course: "Course", book: "Recommended book", film: "Film / Series" },
-      soon: "Coming soon",
-      articles: [
-        "How to know if couples therapy is needed",
-        "How to communicate better in a relationship",
-        "Fear of commitment",
-        "Emotional distance in a relationship",
-        "How to rebuild trust",
-        "Anxiety in relationships",
-        "How to stop repeating toxic relationship patterns",
-        "Premarital questions every couple should discuss",
-        "Dating after a breakup",
-        "Healthy boundaries in relationships"
-      ],
-      ebooks: [
-        "A guide for couples who want to grow together",
-        "Conscious communication workbook",
-        "Modern dating: an honest guide"
-      ],
-      courses: [
-        "Mini-course: communication basics for couples",
-        "Pre-commitment course (self-paced)"
-      ],
-      media: [
-        "Readings on attachment and bonds",
-        "Stories to reflect on love",
-        "Resources on modern love"
-      ]
-    },
-    reviews: {
-      eyebrow: "Testimonials",
-      title: "Client voices",
-      placeholder: "Client testimonials will be added here after proper approval and always respecting confidentiality.",
-      q1: "— Reserved space for testimonial —",
-      q2: "— Reserved space for testimonial —",
-      q3: "— Reserved space for testimonial —"
-    },
-    contact: {
-      eyebrow: "Contact",
-      title: "Let's talk",
-      intro: "Call me or send me a WhatsApp message for a brief initial free consultation. You can briefly share your situation, challenge, or the reason why you are seeking support. We will talk about what you need and how I may be able to help you. If I believe that a different type of support or another professional may be better suited to your needs, I will guide you on possible next steps or alternative resources.",
-      phone: "Phone",
-      address: "Addresses",
-      callCta: "Call now",
-      waCta: "Message on WhatsApp",
-      formTitle: "Send me a message",
-      formHelp: "This form is a visual version. Connect it to your preferred service (Formspree, Netlify Forms, email, etc.) before publishing.",
-      form: {
-        name: "Name",
-        email: "Email",
-        topic: "Topic",
-        topics: ["Individual therapy", "Couples therapy", "Premarital course", "Workshop / group", "Other"],
-        message: "Message",
-        privacy: "I have read and accept the privacy policy.",
-        submit: "Send message",
-        status: ""
+    "legal": {
+      "title": "Información legal",
+      "lead": "Esta página recoge la política de privacidad, el aviso legal y la política de cookies de KONEKTOPIA. El contenido aquí publicado es provisional y será revisado por un asesor legal antes del lanzamiento oficial del sitio.",
+      "provisional": "Borrador — pendiente de revisión legal",
+      "privacy": {
+        "p1": "KONEKTOPIA respeta tu privacidad. Los datos personales que nos facilites (nombre, email, teléfono, mensaje) se utilizan exclusivamente para responder a tu consulta y, en su caso, gestionar el servicio que solicites.",
+        "p2": "No compartimos tus datos con terceros, salvo obligación legal. Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación y portabilidad enviando un mensaje a través de la página de contacto.",
+        "p3": "La base legal del tratamiento es tu consentimiento al contactar con nosotros. Conservamos los datos durante el tiempo necesario para gestionar la relación profesional y cumplir con las obligaciones legales aplicables.",
+        "note": "Este texto es provisional. Será sustituido por una política de privacidad completa, revisada por un profesional legal, antes del lanzamiento."
       },
-      crisisTitle: "Important note:",
-      crisis: "This website does not offer emergency support. If you or someone close to you is in immediate danger, please contact your local emergency services (in Spain, dial 112) or a specialised helpline."
-    },
-    footer: {
-      servicesTitle: "Services",
-      contactTitle: "Contact",
-      legalTitle: "Legal",
-      privacy: "Privacy policy",
-      legal: "Legal notice",
-      cookies: "Cookies policy",
-      legalNote: "Legal pages are provisional and must be reviewed before launch.",
-      byline: "Psychotherapy and relationship support",
-
-      /* — Redesigned homepage additions — */
-      tagline: "Online psychotherapy and couples therapy. Based in Barcelona with international online sessions.",
-      langs: "Español · English · Polski",
-      langsLabel: "Languages:",
-      exploreTitle: "Explore",
-      crisis: "This website does not offer emergency support. If you are in immediate danger, please contact your local emergency services (in Spain, dial 112).",
-      meta: "Barcelona, Spain · International online"
-    },
-
-    /* === Redesigned homepage blocks === */
-    cta: {
-      freeConsult: "Free initial consultation",
-      bookWa: "Book on WhatsApp",
-      bookShort: "Book",
-      explore: "Explore services →",
-      learnMore: "Learn more →",
-      aboutMore: "Read more about me",
-      otherWays: "Other ways to reach me →"
-    },
-    legal: {
-      title: "Legal information",
-      lead: "This page contains the privacy policy, legal notice and cookies policy of KONEKTOPIA. The content published here is provisional and will be reviewed by a legal advisor before the official launch of the site.",
-      provisional: "Draft — pending legal review",
-      privacy: {
-        p1: "KONEKTOPIA respects your privacy. The personal data you provide (name, email, phone, message) is used exclusively to respond to your enquiry and, where applicable, to manage the service you request.",
-        p2: "We do not share your data with third parties unless legally obliged. You may exercise your rights of access, rectification, deletion, objection, limitation and portability by sending a message through the contact page.",
-        p3: "The legal basis for processing is your consent when contacting us. We retain data for the time necessary to manage the professional relationship and fulfil applicable legal obligations.",
-        note: "This text is provisional. It will be replaced by a complete privacy policy, reviewed by a legal professional, before launch."
+      "legal": {
+        "p1": "Titular del sitio: Sonia Foder · KONEKTOPIA, psicoterapia online. Sitio web: konektopia.com. Contacto: +34 684 00 32 37 · konektopia@gmail.com.",
+        "p2": "El acceso a esta web es gratuito y su uso implica la aceptación de las presentes condiciones. KONEKTOPIA se reserva el derecho a modificar el contenido del sitio sin previo aviso.",
+        "p3": "Los servicios profesionales se rigen por el contrato terapéutico que se firma de forma independiente. Esta web no constituye un servicio de urgencia ni sustituye atención médica o psicológica de emergencia.",
+        "note": "Este texto es provisional. Será sustituido por un aviso legal completo, revisado por un profesional legal, antes del lanzamiento."
       },
-      legal: {
-        p1: "Site owner: KONEKTOPIA · Sonia Foder. Website: konektopia.com. Addresses: c/ Nicaragua 100, 08029 Barcelona and c/ Marti i Blasi 6, 08905 Hospitalet de Llobregat. Contact: +34 684 00 32 37.",
-        p2: "Access to this site is free and use implies acceptance of these conditions. KONEKTOPIA reserves the right to modify the site content without prior notice.",
-        p3: "Professional services are governed by the therapeutic contract signed separately. This site does not constitute an emergency service and does not replace emergency medical or psychological care.",
-        note: "This text is provisional. It will be replaced by a complete legal notice, reviewed by a legal professional, before launch."
-      },
-      cookies: {
-        p1: "This site only uses strictly necessary technical cookies for the operation of the web (for example, to remember your preferred language). We do not use tracking or advertising cookies without your consent.",
-        p2: "If in the future we incorporate analytics tools, we will inform you in advance and request your explicit consent via a cookie banner in accordance with current regulations.",
-        p3: "You can configure your browser to reject or delete cookies at any time. Language preference is stored on your device via browser localStorage.",
-        note: "This text is provisional. It will be replaced by a complete cookies policy, reviewed by a legal professional, before launch."
+      "cookies": {
+        "p1": "Este sitio utiliza únicamente cookies técnicas estrictamente necesarias para el funcionamiento de la web (por ejemplo, recordar tu idioma preferido). No utilizamos cookies de seguimiento ni de publicidad sin tu consentimiento.",
+        "p2": "Si en el futuro incorporamos herramientas de analítica, te informaremos previamente y solicitaremos tu consentimiento explícito mediante un banner de cookies conforme a la normativa vigente.",
+        "p3": "Puedes configurar tu navegador para rechazar o eliminar cookies en cualquier momento. La preferencia de idioma se guarda en tu dispositivo mediante localStorage del navegador.",
+        "note": "Este texto es provisional. Será sustituido por una política de cookies completa, revisada por un profesional legal, antes del lanzamiento."
       }
-    },
-    problems: {
-      eyebrow: "What we address",
-      title: "Problems we resolve together",
-      lead: "Each difficulty deserves space, attention and care. These are the themes I most often work with.",
-      items: [
-        "Relationship conflicts",
-        "Communication problems",
-        "Emotional distance",
-        "Anxiety",
-        "Low self-esteem",
-        "Modern dating difficulties",
-        "Fear of commitment",
-        "Repeating unhealthy relationship patterns",
-        "Separation or divorce prevention",
-        "Emotional dependency",
-        "Infidelity recovery",
-        "Low desire / intimacy difficulties",
-        "Loneliness",
-        "Multicultural relationships",
-        "Expat / immigrant adaptation",
-        "Building healthy bonds"
-      ]
-    },
-    pathways: {
-      eyebrow: "How I can help",
-      title: "Five paths, one intention",
-      items: [
-        { t: "Couples therapy",         d: "Communication, conflict, intimacy and important decisions." },
-        { t: "Individual therapy",      d: "Anxiety, self-esteem, emotional regulation, relationship patterns." },
-        { t: "Workshops",                d: "Communication, emotional intimacy, modern love. Online and in person." },
-        { t: "Premarital course",       d: "For couples honouring an important step with awareness." },
-        { t: "For singles",              d: "Understand patterns, choose better, heal the path toward another." },
-        { t: "Resources",                d: "Articles, ebooks and courses to accompany your process." }
-      ]
-    },
-    aboutTeaser: {
-      title: "Accompany, understand, transform",
-      p1: "Psychotherapist trained in Psychology, Couples Therapy and Cognitive Behavioural Therapy. I support individuals and couples in understanding, emotional regulation and building healthy bonds.",
-      p2: "As an immigrant myself, I work especially with expats, migrants and multicultural couples.",
-      quote: "My mission is to ease emotional suffering that prevents people from living a full and meaningful life.",
-      sign: "— Sonia Foder"
-    },
-    process: {
-      eyebrow: "How to begin",
-      title: "Your journey, simple and clear",
-      lead: "Five steps designed with care so you know what to expect from the very first moment.",
-      steps: [
-        { t: "Contact",                       d: "Send me a WhatsApp message with a brief description of what brings you here." },
-        { t: "Free initial consultation",     d: "We talk with no commitment, get to know each other and understand what you need." },
-        { t: "Understand the situation",      d: "We explore context, history and goals calmly and honestly." },
-        { t: "Choose the right support",      d: "Individual therapy, couples therapy, workshop or course — whatever fits best." },
-        { t: "Begin",                         d: "The process starts at a pace that respects you." }
-      ]
-    },
-    finalCta: {
-      eyebrow: "Begin",
-      title: "Ready to take the first step?",
-      lead: "The initial consultation is free and with no commitment. Tell me briefly what you're looking for and I'll reply within 24h.",
-      tiny: "+34 684 00 32 37 · Reply within 24h"
-    },
-
-    float: { wa: "WhatsApp" }
+    }
   },
-
-  pl: {
-    meta: {
-      title: "KONEKTOPIA | Psychoterapia i terapia par w Barcelonie",
-      description: "KONEKTOPIA oferuje psychoterapię online indywidualną i par, terapię poznawczo-behawioralną, kursy przedmałżeńskie i warsztaty relacyjne po hiszpańsku, angielsku i polsku. Siedziba w Barcelonie, sesje online międzynarodowo.",
-      ogTitle: "KONEKTOPIA | Psychoterapia i terapia par w Barcelonie",
-      ogDescription: "Psychoterapia online indywidualna i par, CBT, kursy przedmałżeńskie i warsztaty relacyjne. Barcelona + online międzynarodowo."
+  "pl": {
+    "meta": {
+      "title": "KONEKTOPIA · Sonia Foder · Psychoterapia online",
+      "description": "Psychoterapia online z Sonią Foder: terapia indywidualna, terapia par i życie między kulturami. Po polsku, hiszpańsku i angielsku."
     },
-    a11y: { skip: "Przejdź do treści głównej" },
-    nav: {
-      home: "Start",
-      help: "Jak pomagam", about: "O mnie", therapy: "Terapia",
-      services: "Usługi", workshops: "Warsztaty", premarital: "Kurs przedmałżeński",
-      singles: "Dla singli", resources: "Zasoby", contact: "Kontakt",
-      cta: "Skontaktuj się"
+    "a11y": {
+      "skip": "Przejdź do treści"
     },
-    hero: {
-      badge: "Online · Barcelona · Międzynarodowo",
-      intro: "Psychoterapia, terapia par i warsztaty relacyjne. Ciepła, profesjonalna przestrzeń bez oceniania, by zacząć.",
-      tiny: "Odpowiedź w 24h · Bez zobowiązań",
-      eyebrow: "Psychoterapia · Terapia par · Online & Barcelona",
-      welcome: "Witaj w",
-      motto: "Jakość Twoich relacji definiuje jakość Twojego życia.",
-      description: "Psychoterapia. Terapia indywidualna i par online. Terapia poznawczo-behawioralna. Warsztaty i kursy przed zaangażowaniem. Siedziba w Barcelonie, sesje online międzynarodowo.",
-      ctaPrimary: "Skontaktuj się",
-      ctaSecondary: "Usługi",
-      mottoHtml: "Jakość Twoich relacji definiuje<br><mark>jakość Twojego życia</mark>.",
-      features: [
-        "Poufnie i profesjonalnie",
-        "Elastycznie i online",
-        "Holistycznie i na Twoją miarę"
-      ],
-      announce: "Bezpłatna konsultacja wstępna · ograniczona liczba miejsc",
-      promptPlaceholder: "Krótko: co Cię tu sprowadza?",
-      promptAria: "Krótko: co Cię tu sprowadza",
-      promptSend: "Wyślij",
-      promptHint: "Po wysłaniu otworzy się WhatsApp z gotową wiadomością. Bez zobowiązań.",
-      promptIntro: "Cześć, chciałbym/chciałabym umówić wstępną konsultację.",
-      suggestions: [
-        "Mamy konflikty w związku",
-        "Chcę zacząć terapię indywidualną",
-        "Myślimy o kursie przedmałżeńskim",
-        "Lęk lub niska samoocena",
-        "Jestem ekspatem / migrantem"
-      ],
-      trust: ["Terapia online", "Terapia par", "Terapia indywidualna", "Warsztaty", "Barcelona", "Sesje online międzynarodowo"]
+    "nav": {
+      "home": "Start",
+      "therapy": "Terapia",
+      "onlyYou": "Tylko ty",
+      "forBoth": "Dla dwojga",
+      "about": "O mnie",
+      "contact": "Kontakt"
     },
-    approach: {
-      eyebrow: "Jak pracujemy",
-      title: "Najpierw zrozumieć — potem zmieniać",
-      p1: "Psychoterapia zaczyna się od ciekawości: dlaczego myślimy to, co myślimy, czujemy to, co czujemy, i wchodzimy w relacje tak, jak to robimy.",
-      p2: "Razem przyglądamy się tym wzorcom spokojnie i bez oceniania — i z tego zrozumienia rośnie prawdziwa zmiana.",
-      cta: "Umów wstępną konsultację"
+    "cta": {
+      "touch": "Napisz do mnie",
+      "whatsapp": "WhatsApp",
+      "call": "Zadzwoń",
+      "more": "Dowiedz się więcej",
+      "back": "Wszystkie formy terapii"
     },
-    help: {
-      eyebrow: "Wsparcie",
-      title: "Mogę Ci pomóc, jeśli doświadczasz…",
-      lead: "Bezpieczna przestrzeń, by zrozumieć, co się dzieje, znaleźć jasność i zbudować realne narzędzia.",
-      items: [
-        "Konfliktów w związku",
-        "Problemów z komunikacją",
-        "Emocjonalnego dystansu",
-        "Lęku",
-        "Niskiej samooceny",
-        "Trudności w randkowaniu i współczesnych relacjach",
-        "Lęku przed zaangażowaniem",
-        "Powtarzających się negatywnych wzorców relacyjnych",
-        "Profilaktyki rozstania lub rozwodu",
-        "Trudności w regulacji emocji",
-        "Przeszłej traumy relacyjnej",
-        "Trudności w budowaniu zdrowych więzi",
-        "Adaptacji ekspatów i migrantów",
-        "Wyzwań w relacjach wielokulturowych"
-      ]
+    "home": {
+      "subtitle": "Psychoterapeutka specjalizująca się w relacjach i presji współczesnego życia",
+      "tagline": "Zrozumieć. Zmienić. Poczuć się lepiej.",
+      "intro": "Terapia pomaga zrozumieć to, czego doświadczasz, wprowadzić ważne zmiany i zbudować bardziej satysfakcjonujące życie.",
+      "ctaText": "Nie wiesz, czy terapia jest dla ciebie? Pierwszy krok bywa trudny. Czasem jedna rozmowa wystarczy, by zobaczyć wszystko wyraźniej."
     },
-    about: {
-      eyebrow: "O KONEKTOPIA",
-      title: "O mnie",
-      tag: "Barcelona · Online",
-      p1: "Jestem doświadczoną psychoterapeutką z wykształceniem w obszarze psychologii, terapii par oraz terapii poznawczo-behawioralnej. Moją misją jest zmniejszanie cierpienia emocjonalnego, które utrudnia prowadzenie pełnego i satysfakcjonującego życia.",
-      p2: "Wspieram osoby doświadczające trudności relacyjnych i komunikacyjnych. Pracuję z wyzwaniami związanymi ze współczesnym randkowaniem i relacjami, konfliktami w parze oraz profilaktyką rozstania lub rozwodu. Zajmuję się również lękiem, niską samooceną, negatywnymi doświadczeniami relacyjnymi, trudnościami w regulacji emocji oraz problemami z budowaniem lub utrzymywaniem zdrowych więzi.",
-      p3: "Jako osoba z doświadczeniem emigracji wspieram także ekspatów, migrantów i osoby żyjące między kulturami w procesach adaptacji, budowania tożsamości, akceptacji oraz odnajdywania równowagi między wartościami kraju pochodzenia i kraju przyjmującego.",
-      p4: "Klienci cenią moje doświadczenie, empatię, poczucie humoru, pragmatyzm oraz zdolność inspirowania realnych zmian.",
-      educationTitle: "Wykształcenie zawodowe",
-      education: "Dyplom z psychologii we Francji. Studia doktoranckie oraz magisterskie studia badawcze z zakresu psychologii klinicznej i zdrowia na Uniwersytecie w Barcelonie. Specjalizacja w terapii poznawczo-behawioralnej w School of Cognitive Behavioural Psychotherapy, Uniwersytet SWPS w Warszawie. Kurs terapii par Metodą Gottmana. Magisterium z seksuologii klinicznej i terapii par w Instituto de la Pareja.",
-      signature: "— Sonia Foder, KONEKTOPIA"
-    },
-    therapy: {
-      eyebrow: "Terapia",
-      title: "Terapia par i terapia indywidualna",
-      lead: "Dwie różne ścieżki, jeden cel: by Twoja relacja ze sobą i z innymi była zdrowsza, bardziej świadoma i satysfakcjonująca.",
-      goalsTitle: "Częste cele",
-      common: {
-        whenTitle: "Kiedy zacząć?",
-        howTitle: "Jak zaczyna się proces?",
-        expectTitle: "Czego możesz się spodziewać?"
+    "card": {
+      "individual": {
+        "title": "Terapia indywidualna",
+        "text": "Zrozum powtarzające się wzorce, przepracuj trudności emocjonalne i znajdź nowe drogi."
       },
-      couples: {
-        eyebrow: "Dla par",
-        title: "Terapia par",
-        when: "Kiedy komunikacja stała się trudna, konflikty się powtarzają lub gdy podejmujecie ważne decyzje i chcecie zrobić to z większą jasnością. Nie trzeba czekać na kryzys.",
-        how: "Pierwsze wspólne spotkanie, by zrozumieć Waszą historię, obecne trudności i wspólne cele. Następnie budujemy plan dopasowany do Waszej pary.",
-        expect: "Bezpieczna przestrzeń bez oceniania, w której każda strona zostaje wysłuchana. Praktyczne narzędzia dotyczące komunikacji, konfliktu i bliskości.",
-        goals: ["Komunikacja", "Zaufanie", "Konflikt", "Bliskość", "Podejmowanie decyzji", "Profilaktyka rozstania"]
+      "couples": {
+        "title": "Terapia par",
+        "text": "Popraw komunikację, przepracuj konflikty i kryzysy w związku. Odbuduj bliskość i intymność."
       },
-      individual: {
-        eyebrow: "Dla Ciebie",
-        title: "Terapia indywidualna",
-        when: "Kiedy czujesz, że coś się powtarza, że lęk lub presja zajmują zbyt dużo miejsca, lub chcesz lepiej siebie zrozumieć i żyć bardziej spójnie.",
-        how: "Pierwsza konsultacja, by zbadać Twoją sytuację, historię i to, co chciałbyś zmienić. Ustalamy realistyczne cele i tempo dopasowane do Ciebie.",
-        expect: "Profesjonalne wsparcie, praktyczne narzędzia oraz spojrzenie współczujące, ale uczciwe. Zmiana powstaje krok po kroku.",
-        goals: ["Samopoznanie", "Redukcja lęku", "Regulacja emocji", "Samoocena", "Wzorce relacyjne"]
+      "cultures": {
+        "title": "Życie między kulturami",
+        "text": "Odnajdź się w różnicach kulturowych i w życiu między krajami, buduj satysfakcjonujące relacje."
       }
     },
-    sessions: {
-      eyebrow: "Proces",
-      title: "Struktura sesji",
-      lead: "Jasny, elastyczny proces dopasowany do Twojego tempa.",
-      steps: [
-        { t: "Konsultacja wstępna", d: "Pierwsza rozmowa, by się poznać, zrozumieć, czego doświadczasz, i wspólnie zdecydować, czy to dobre dopasowanie." },
-        { t: "Zrozumienie sytuacji", d: "Badamy kontekst, historię, kluczowe momenty i to, co podtrzymuje dziś trudność." },
-        { t: "Określenie celów", d: "Ustalamy realistyczne i znaczące cele dla Ciebie lub dla pary." },
-        { t: "Badanie wzorców", d: "Identyfikujemy przekonania, emocje i zachowania, które się powtarzają i blokują zmianę." },
-        { t: "Praktyczne narzędzia", d: "Uczysz się konkretnych narzędzi opartych na psychologii i terapii poznawczo-behawioralnej." },
-        { t: "Przegląd postępów", d: "Szczerze omawiamy postępy, wątpliwości i przeszkody, bez pośpiechu." },
-        { t: "Dostosowanie procesu", d: "Dopasowujemy tempo, cele i podejście do Twojego etapu życia." }
-      ],
-      expectTitle: "Czego możesz oczekiwać",
-      expect: [
-        "Bezpieczna, pełna szacunku rozmowa",
-        "Praktyczne narzędzia psychologiczne",
-        "Klarowność emocjonalna",
-        "Lepsza komunikacja",
-        "Bez oceniania",
-        "Poufność",
-        "Realistyczny proces, nie natychmiastowe rezultaty"
-      ]
+    "tags": [
+      "Nastawiona na rozwiązania",
+      "Dopasowana do ciebie",
+      "Online",
+      "Po hiszpańsku · angielsku · polsku"
+    ],
+    "therapy": {
+      "title": "Terapia",
+      "intro": "[Twój tekst: krótkie wprowadzenie do tego, jak pracujesz]",
+      "sessionTitle": "Jak wygląda sesja online",
+      "sessionText": "[Twój tekst: długość, częstotliwość, platforma i jak się umówić]"
     },
-    services: {
-      eyebrow: "Usługi",
-      title: "Usługi i ceny",
-      lead: "Sesje indywidualne i par, warsztaty i kursy. Wybierz format, który najlepiej Ci odpowiada.",
-      group: { sessions: "Sesje", workshops: "Warsztaty i kursy", inPerson: "Format stacjonarny", corporate: "Dla firm" },
-      badge: { online: "Online", inPerson: "Stacjonarnie", pack: "Pakiet", group: "Grupa", corp: "Firmowe", inc: "Ebook w zestawie" },
-      meta: { duration: "Czas trwania", frequency: "Częstotliwość", weekly: "Tygodniowo", groupSize: "Grupa", sessions: "Sesje", cities: "Miasta", format: "Format", includes: "Zawiera", perPerson: "za osobę", perCouple: "za parę" },
-      bookWa: "Zarezerwuj przez WhatsApp",
-      contactWa: "Napisz przez WhatsApp",
-      note: "Bezpłatna konsultacja wstępna · Bez zobowiązań · Odpowiedź w 24h",
-      items: [
-        { t: "Sesja dla par online", d: "Wspólna praca nad komunikacją, konfliktami i bliskością." },
-        { t: "Sesja indywidualna online", d: "Terapia jeden na jeden – lęk, samoocena i wzorce emocjonalne." },
-        { t: "Warsztat dla singli", sub: "Randkowanie i nowoczesne relacje", d: "Małe grupy, by zrozumieć świat randek i budować zdrowsze relacje.", topics: ["Nawigacja po aplikacjach randkowych", "Pierwsze randki i komunikacja", "Odporność na odrzucenie", "Umiejętności relacyjne"] },
-        { t: "Doradztwo przed zaangażowaniem / przedmałżeńskie", sub: "Online", d: "Przygotowanie do stałego związku, kohabitacji lub małżeństwa. Ebook w zestawie.", sessions: "5 × 60 min (para)" },
-        { t: "Kurs przed zaangażowaniem / przedmałżeński", sub: "Stacjonarnie", d: "Dla par przygotowujących się do zaangażowania, wspólnego życia lub ślubu.", cities: "Barcelona · Girona · Tarragona · Valencia · Jerez" },
-        { t: "Warsztaty firmowe", sub: "Na zamówienie", d: "Projektujemy treści i cele dopasowane do potrzeb Twojego zespołu.", topics: ["Komunikacja w relacji", "Rozwiązywanie konfliktów", "Umiejętności interpersonalne", "Inne powiązane tematy"] }
-      ]
+    "page": {
+      "p1": "[Twój tekst: dla kogo jest ta terapia]",
+      "p2": "[Twój tekst: jak razem pracujemy]"
     },
-    workshops: {
-      eyebrow: "Warsztaty",
-      title: "Warsztaty stacjonarne i online",
-      lead: "Doświadczalne przestrzenie nauki o relacjach, komunikacji i świadomym zaangażowaniu.",
-      topics: ["Edukacja relacyjna", "Komunikacja", "Profilaktyka konfliktu", "Bliskość emocjonalna", "Świadome zaangażowanie", "Współczesna miłość i randki"],
-      locationsTitle: "Dostępne w Katalonii i Andaluzji",
-      locationsDesc: "Warsztaty i kursy stacjonarne w wybranych miastach. Kalendarz aktualizowany w zależności od zainteresowania.",
-      cta: "Zapytaj o najbliższy warsztat"
+    "about": {
+      "title": "O mnie",
+      "p1": "[Twój tekst: kim jesteś i twoja historia]",
+      "p2": "[Twój tekst: wykształcenie i kwalifikacje]"
     },
-    premarital: {
-      eyebrow: "Kurs specjalny",
-      title: "Kurs przed zaangażowaniem / przedmałżeński",
-      p1: "Dla par rozważających ważny krok — wspólne zamieszkanie, ślub, rodzinę lub długoterminowe decyzje.",
-      p2: "Pracujemy nad oczekiwaniami, wartościami, stylem komunikacji, wzorcami konfliktu, bliskością, planami rodzinnymi, finansami, stylem życia i potrzebami emocjonalnymi.",
-      p3: "To proces profilaktyczny, praktyczny i głęboko skoncentrowany na relacji. Dostępny online lub w formie warsztatu.",
-      cta: "Więcej informacji",
-      cta2: "Zobacz formaty"
+    "contact": {
+      "title": "Kontakt",
+      "text": "Napisz do mnie na WhatsAppie albo zadzwoń, jak ci wygodniej."
     },
-    singles: {
-      eyebrow: "Dla singli",
-      title: "Dla singli",
-      lead: "Wsparcie relacyjne dla osób samotnych, które chcą lepiej siebie zrozumieć, uleczyć się i wybierać świadomiej.",
-      items: [
-        { t: "Wzorce randkowania", d: "Rozpoznaj, jakie relacje wybierasz i dlaczego." },
-        { t: "Dostępność emocjonalna", d: "Sprawdź, czy jesteś naprawdę gotowy(a) na zdrową relację." },
-        { t: "Samoocena w relacjach", d: "Buduj poczucie wartości, które nie zależy od drugiej osoby." },
-        { t: "Wybór zdrowszych partnerów", d: "Naucz się czytać sygnały i filtrować od początku." },
-        { t: "Przerywanie wzorców", d: "Wyjdź z pętli tej samej historii z różnymi osobami." },
-        { t: "Wsparcie w nowoczesnym randkowaniu", d: "Apki, ghosting, niejasność: poruszaj się po dzisiejszym krajobrazie z klarownością." }
-      ]
+    "footer": {
+      "tagline": "Psychoterapia online po polsku, hiszpańsku i angielsku.",
+      "exploreTitle": "Odkryj",
+      "contactTitle": "Kontakt",
+      "crisis": "Ta strona nie świadczy pomocy w sytuacjach kryzysowych. W razie bezpośredniego zagrożenia skontaktuj się z lokalnymi służbami ratunkowymi (w Hiszpanii 112).",
+      "privacy": "Polityka prywatności",
+      "legal": "Nota prawna",
+      "cookies": "Polityka cookies",
+      "legalTitle": "Informacje prawne"
     },
-    resources: {
-      eyebrow: "Zasoby",
-      title: "Zasoby dla Twoich relacji",
-      lead: "Artykuły, ebooki, kursy i rekomendacje. Wkrótce uzupełnimy tę sekcję treściami do pobrania.",
-      tabs: ["Artykuły", "Ebooki", "Kursy", "Książki, filmy i seriale"],
-      cat: { article: "Artykuł", ebook: "Ebook", course: "Kurs", book: "Polecana książka", film: "Film / serial" },
-      soon: "Wkrótce",
-      articles: [
-        "Jak rozpoznać, że potrzebna jest terapia par?",
-        "Jak lepiej komunikować się w związku",
-        "Lęk przed zaangażowaniem",
-        "Emocjonalny dystans w związku",
-        "Jak odbudować zaufanie",
-        "Lęk w relacjach",
-        "Jak przestać powtarzać toksyczne wzorce",
-        "Pytania przedmałżeńskie, o które warto zapytać",
-        "Powrót do randkowania po rozstaniu",
-        "Zdrowe granice w relacjach"
-      ],
-      ebooks: [
-        "Przewodnik dla par, które chcą rozwijać się razem",
-        "Zeszyt świadomej komunikacji",
-        "Współczesne randkowanie: szczery przewodnik"
-      ],
-      courses: [
-        "Mini-kurs: podstawy komunikacji w parze",
-        "Kurs przed zaangażowaniem (samodzielny)"
-      ],
-      media: [
-        "Lektury o przywiązaniu i więziach",
-        "Historie do refleksji o miłości",
-        "Zasoby o nowoczesnej miłości"
-      ]
-    },
-    reviews: {
-      eyebrow: "Opinie",
-      title: "Głosy klientów",
-      placeholder: "Opinie klientów zostaną dodane po uzyskaniu odpowiedniej zgody i z poszanowaniem poufności.",
-      q1: "— Miejsce na opinię —",
-      q2: "— Miejsce na opinię —",
-      q3: "— Miejsce na opinię —"
-    },
-    contact: {
-      eyebrow: "Kontakt",
-      title: "Porozmawiajmy",
-      intro: "Zadzwoń lub napisz do mnie na WhatsApp, aby umówić krótką, wstępną konsultację bez zobowiązań. Możesz krótko opowiedzieć o swojej sytuacji, trudnościach lub powodzie, dla którego szukasz wsparcia. Porozmawiamy o tym, czego potrzebujesz i w jaki sposób mogę Ci pomóc. Jeśli uznam, że inny rodzaj wsparcia lub inny specjalista będzie lepiej dopasowany do Twojej sytuacji, wskażę możliwe kolejne kroki lub alternatywne zasoby.",
-      phone: "Telefon",
-      address: "Adresy",
-      callCta: "Zadzwoń",
-      waCta: "Napisz na WhatsApp",
-      formTitle: "Napisz do mnie",
-      formHelp: "Ten formularz to wersja wizualna. Podłącz go do wybranej usługi (Formspree, Netlify Forms, e-mail itp.) przed publikacją.",
-      form: {
-        name: "Imię",
-        email: "Email",
-        topic: "Temat",
-        topics: ["Terapia indywidualna", "Terapia par", "Kurs przedmałżeński", "Warsztat / grupa", "Inne"],
-        message: "Wiadomość",
-        privacy: "Zapoznałem/am się i akceptuję politykę prywatności.",
-        submit: "Wyślij wiadomość",
-        status: ""
+    "legal": {
+      "title": "Informacje prawne",
+      "lead": "Ta strona zawiera politykę prywatności, notę prawną i politykę cookies KONEKTOPIA. Publikowane tu treści są wersją roboczą i zostaną zweryfikowane przez doradcę prawnego przed oficjalnym uruchomieniem strony.",
+      "provisional": "Wersja robocza — wymaga weryfikacji prawnej",
+      "privacy": {
+        "p1": "KONEKTOPIA szanuje Twoją prywatność. Dane osobowe, które nam przekazujesz (imię, e-mail, telefon, wiadomość), są wykorzystywane wyłącznie w celu odpowiedzi na Twoje zapytanie i — w stosownych przypadkach — realizacji usługi, o którą prosisz.",
+        "p2": "Nie udostępniamy Twoich danych osobom trzecim, chyba że wymagają tego przepisy prawa. Możesz w każdej chwili skorzystać z prawa dostępu, sprostowania, usunięcia, sprzeciwu, ograniczenia i przenoszenia, wysyłając wiadomość przez stronę kontaktową.",
+        "p3": "Podstawą prawną przetwarzania jest Twoja zgoda wyrażona przy kontakcie. Dane przechowujemy przez czas niezbędny do obsługi relacji zawodowej i wypełnienia obowiązków prawnych.",
+        "note": "Ten tekst jest wersją roboczą. Zostanie zastąpiony pełną polityką prywatności, zweryfikowaną przez prawnika, przed publikacją."
       },
-      crisisTitle: "Ważna informacja:",
-      crisis: "Ta strona nie świadczy pomocy w sytuacjach kryzysowych. Jeśli Ty lub osoba bliska jesteście w bezpośrednim zagrożeniu, skontaktujcie się z lokalnymi służbami ratunkowymi (w Hiszpanii numer 112) lub z wyspecjalizowaną linią pomocową."
-    },
-    footer: {
-      servicesTitle: "Usługi",
-      contactTitle: "Kontakt",
-      legalTitle: "Informacje prawne",
-      privacy: "Polityka prywatności",
-      legal: "Nota prawna",
-      cookies: "Polityka cookies",
-      legalNote: "Strony prawne są wersją roboczą i muszą zostać zweryfikowane przed publikacją.",
-      byline: "Psychoterapia i wsparcie relacyjne",
-
-      /* — Redesigned homepage additions — */
-      tagline: "Psychoterapia online i terapia par. Barcelona oraz sesje online międzynarodowo.",
-      langs: "Español · English · Polski",
-      langsLabel: "Języki:",
-      exploreTitle: "Eksploruj",
-      crisis: "Ta strona nie świadczy pomocy w sytuacjach kryzysowych. W razie bezpośredniego zagrożenia skontaktuj się z lokalnymi służbami ratunkowymi (w Hiszpanii 112).",
-      meta: "Barcelona, Hiszpania · Online międzynarodowo"
-    },
-
-    /* === Redesigned homepage blocks === */
-    cta: {
-      freeConsult: "Bezpłatna konsultacja wstępna",
-      bookWa: "Zarezerwuj przez WhatsApp",
-      bookShort: "Rezerwuj",
-      explore: "Zobacz usługi →",
-      learnMore: "Dowiedz się więcej →",
-      aboutMore: "Poznaj mnie bliżej",
-      otherWays: "Inne formy kontaktu →"
-    },
-    legal: {
-      title: "Informacje prawne",
-      lead: "Ta strona zawiera politykę prywatności, notę prawną i politykę cookies KONEKTOPIA. Publikowane tu treści są wersją roboczą i zostaną zweryfikowane przez doradcę prawnego przed oficjalnym uruchomieniem strony.",
-      provisional: "Wersja robocza — wymaga weryfikacji prawnej",
-      privacy: {
-        p1: "KONEKTOPIA szanuje Twoją prywatność. Dane osobowe, które nam przekazujesz (imię, e-mail, telefon, wiadomość), są wykorzystywane wyłącznie w celu odpowiedzi na Twoje zapytanie i — w stosownych przypadkach — realizacji usługi, o którą prosisz.",
-        p2: "Nie udostępniamy Twoich danych osobom trzecim, chyba że wymagają tego przepisy prawa. Możesz w każdej chwili skorzystać z prawa dostępu, sprostowania, usunięcia, sprzeciwu, ograniczenia i przenoszenia, wysyłając wiadomość przez stronę kontaktową.",
-        p3: "Podstawą prawną przetwarzania jest Twoja zgoda wyrażona przy kontakcie. Dane przechowujemy przez czas niezbędny do obsługi relacji zawodowej i wypełnienia obowiązków prawnych.",
-        note: "Ten tekst jest wersją roboczą. Zostanie zastąpiony pełną polityką prywatności, zweryfikowaną przez prawnika, przed publikacją."
+      "legal": {
+        "p1": "Właściciel serwisu: Sonia Foder · KONEKTOPIA, psychoterapia online. Strona: konektopia.com. Kontakt: +34 684 00 32 37 · konektopia@gmail.com.",
+        "p2": "Dostęp do strony jest bezpłatny, a korzystanie z niej oznacza akceptację niniejszych warunków. KONEKTOPIA zastrzega sobie prawo do modyfikowania treści serwisu bez uprzedniego powiadomienia.",
+        "p3": "Usługi profesjonalne są regulowane przez odrębnie podpisywaną umowę terapeutyczną. Ta strona nie stanowi usługi ratunkowej i nie zastępuje pomocy medycznej ani psychologicznej w sytuacji nagłej.",
+        "note": "Ten tekst jest wersją roboczą. Zostanie zastąpiony pełną notą prawną, zweryfikowaną przez prawnika, przed publikacją."
       },
-      legal: {
-        p1: "Właściciel serwisu: KONEKTOPIA · Sonia Foder. Strona: konektopia.com. Adresy: c/ Nicaragua 100, 08029 Barcelona oraz c/ Marti i Blasi 6, 08905 Hospitalet de Llobregat. Kontakt: +34 684 00 32 37.",
-        p2: "Dostęp do strony jest bezpłatny, a korzystanie z niej oznacza akceptację niniejszych warunków. KONEKTOPIA zastrzega sobie prawo do modyfikowania treści serwisu bez uprzedniego powiadomienia.",
-        p3: "Usługi profesjonalne są regulowane przez odrębnie podpisywaną umowę terapeutyczną. Ta strona nie stanowi usługi ratunkowej i nie zastępuje pomocy medycznej ani psychologicznej w sytuacji nagłej.",
-        note: "Ten tekst jest wersją roboczą. Zostanie zastąpiony pełną notą prawną, zweryfikowaną przez prawnika, przed publikacją."
-      },
-      cookies: {
-        p1: "Strona używa wyłącznie technicznych plików cookies, ściśle niezbędnych do działania serwisu (np. zapamiętanie preferowanego języka). Nie używamy cookies śledzących ani reklamowych bez Twojej zgody.",
-        p2: "Jeśli w przyszłości wprowadzimy narzędzia analityczne, poinformujemy Cię z wyprzedzeniem i poprosimy o wyraźną zgodę poprzez baner cookies zgodnie z obowiązującymi przepisami.",
-        p3: "Możesz w dowolnym momencie skonfigurować swoją przeglądarkę, aby odrzucała lub usuwała cookies. Preferencja językowa jest zapisywana na Twoim urządzeniu za pomocą localStorage przeglądarki.",
-        note: "Ten tekst jest wersją roboczą. Zostanie zastąpiony pełną polityką cookies, zweryfikowaną przez prawnika, przed publikacją."
+      "cookies": {
+        "p1": "Strona używa wyłącznie technicznych plików cookies, ściśle niezbędnych do działania serwisu (np. zapamiętanie preferowanego języka). Nie używamy cookies śledzących ani reklamowych bez Twojej zgody.",
+        "p2": "Jeśli w przyszłości wprowadzimy narzędzia analityczne, poinformujemy Cię z wyprzedzeniem i poprosimy o wyraźną zgodę poprzez baner cookies zgodnie z obowiązującymi przepisami.",
+        "p3": "Możesz w dowolnym momencie skonfigurować swoją przeglądarkę, aby odrzucała lub usuwała cookies. Preferencja językowa jest zapisywana na Twoim urządzeniu za pomocą localStorage przeglądarki.",
+        "note": "Ten tekst jest wersją roboczą. Zostanie zastąpiony pełną polityką cookies, zweryfikowaną przez prawnika, przed publikacją."
       }
-    },
-    problems: {
-      eyebrow: "Czym się zajmujemy",
-      title: "Problemy, które rozwiązujemy razem",
-      lead: "Każda trudność zasługuje na przestrzeń, uwagę i troskę. Oto tematy, z którymi pracuję najczęściej.",
-      items: [
-        "Konflikty w związku",
-        "Problemy z komunikacją",
-        "Emocjonalny dystans",
-        "Lęk",
-        "Niska samoocena",
-        "Trudności we współczesnym randkowaniu",
-        "Lęk przed zaangażowaniem",
-        "Powtarzające się niezdrowe wzorce relacyjne",
-        "Profilaktyka rozstania lub rozwodu",
-        "Zależność emocjonalna",
-        "Po zdradzie — odbudowa",
-        "Niskie pożądanie lub trudności w bliskości",
-        "Samotność",
-        "Relacje wielokulturowe",
-        "Adaptacja ekspatów i migrantów",
-        "Budowanie zdrowych więzi"
-      ]
-    },
-    pathways: {
-      eyebrow: "Jak mogę Cię wspierać",
-      title: "Pięć dróg, jedna intencja",
-      items: [
-        { t: "Terapia par",                d: "Komunikacja, konflikt, bliskość i ważne decyzje." },
-        { t: "Terapia indywidualna",       d: "Lęk, samoocena, regulacja emocji, wzorce relacyjne." },
-        { t: "Warsztaty",                   d: "Komunikacja, bliskość emocjonalna, współczesna miłość. Online i stacjonarnie." },
-        { t: "Kurs przedmałżeński",        d: "Dla par, które chcą zrobić ważny krok ze świadomością." },
-        { t: "Dla singli",                  d: "Zrozumieć wzorce, wybierać lepiej, uleczyć drogę do drugiej osoby." },
-        { t: "Zasoby",                      d: "Artykuły, ebooki i kursy wspierające Twój proces." }
-      ]
-    },
-    aboutTeaser: {
-      title: "Towarzyszyć, zrozumieć, przemienić",
-      p1: "Psychoterapeutka z wykształceniem w psychologii, terapii par oraz terapii poznawczo-behawioralnej. Wspieram osoby i pary w zrozumieniu siebie, regulacji emocji i budowaniu zdrowych więzi.",
-      p2: "Jako osoba z doświadczeniem emigracji, pracuję szczególnie z ekspatami, migrantami i parami wielokulturowymi.",
-      quote: "Moją misją jest łagodzenie cierpienia emocjonalnego, które utrudnia prowadzenie pełnego i satysfakcjonującego życia.",
-      sign: "— Sonia Foder"
-    },
-    process: {
-      eyebrow: "Jak zacząć",
-      title: "Twoja droga — prosta i klarowna",
-      lead: "Pięć kroków przemyślanych z troską, byś od pierwszej chwili wiedział(a), czego się spodziewać.",
-      steps: [
-        { t: "Kontakt",                          d: "Napisz na WhatsApp z krótkim opisem tego, co Cię sprowadza." },
-        { t: "Bezpłatna konsultacja wstępna",   d: "Rozmawiamy bez zobowiązań, by się poznać i zrozumieć Twoje potrzeby." },
-        { t: "Rozumiemy sytuację",               d: "Spokojnie i uczciwie badamy kontekst, historię i cele." },
-        { t: "Wybieramy odpowiednie wsparcie",   d: "Terapia indywidualna, par, warsztat lub kurs — co najlepiej pasuje." },
-        { t: "Zaczynamy",                        d: "Proces rusza w tempie, które Cię szanuje." }
-      ]
-    },
-    finalCta: {
-      eyebrow: "Zaczynamy",
-      title: "Gotowy(a) na pierwszy krok?",
-      lead: "Konsultacja wstępna jest bezpłatna i bez zobowiązań. Napisz krótko, czego szukasz — odpowiem w ciągu 24h.",
-      tiny: "+34 684 00 32 37 · Odpowiedź w 24h"
-    },
-
-    float: { wa: "WhatsApp" }
+    }
   }
 };
 
@@ -1129,18 +326,24 @@ function getPath(obj, path) {
   }, obj);
 }
 
+// Missing key in es/pl falls back to the English text
+function tr(dict, path) {
+  const v = getPath(dict, path);
+  return typeof v === "string" ? v : getPath(TRANSLATIONS.en, path);
+}
+
 function applyTranslations(lang) {
-  const dict = TRANSLATIONS[lang] || TRANSLATIONS.es;
+  const dict = TRANSLATIONS[lang] || TRANSLATIONS.en;
 
   // Text nodes
   document.querySelectorAll("[data-i18n]").forEach(el => {
-    const value = getPath(dict, el.getAttribute("data-i18n"));
+    const value = tr(dict, el.getAttribute("data-i18n"));
     if (typeof value === "string") el.textContent = value;
   });
 
   // HTML nodes — translations may contain markup like <mark> for highlight blocks
   document.querySelectorAll("[data-i18n-html]").forEach(el => {
-    const value = getPath(dict, el.getAttribute("data-i18n-html"));
+    const value = tr(dict, el.getAttribute("data-i18n-html"));
     if (typeof value === "string") el.innerHTML = value;
   });
 
@@ -1170,7 +373,7 @@ function applyTranslations(lang) {
   // og:locale
   const ogLocale = document.querySelector('meta[property="og:locale"]');
   if (ogLocale) {
-    ogLocale.setAttribute("content", { es: "es_ES", en: "en_GB", pl: "pl_PL" }[lang] || "es_ES");
+    ogLocale.setAttribute("content", { es: "es_ES", en: "en_GB", pl: "pl_PL" }[lang] || "en_GB");
   }
 }
 
@@ -1202,7 +405,7 @@ function initLanguageSwitch() {
       try { localStorage.setItem("konektopia.lang", lang); } catch (e) {}
     }
     // Keep position in section: do nothing — only text changes, scroll stays
-    if (!fromInit) {
+    if (!fromInit && indicator) {
       // Tiny pulse on indicator for feedback
       indicator.animate(
         [{ transform: indicator.style.transform + " scale(1)" },
@@ -1218,7 +421,7 @@ function initLanguageSwitch() {
   });
 
   // Choose initial language
-  let initial = "es";
+  let initial = "en";
   try {
     const saved = localStorage.getItem("konektopia.lang");
     if (saved && TRANSLATIONS[saved]) initial = saved;
@@ -1377,231 +580,25 @@ function initActiveNav() {
   map.forEach((_, sec) => io.observe(sec));
 }
 
-/* ---------- Resources tabs ---------- */
-function initResourceTabs() {
-  const tabs = document.querySelectorAll(".res-tab");
-  const panels = document.querySelectorAll(".res-panel");
-  if (!tabs.length) return;
-  tabs.forEach(t => {
-    t.addEventListener("click", () => {
-      const key = t.dataset.tab;
-      tabs.forEach(x => {
-        const active = x === t;
-        x.classList.toggle("is-active", active);
-        x.setAttribute("aria-selected", active ? "true" : "false");
-      });
-      panels.forEach(p => p.classList.toggle("is-active", p.dataset.panel === key));
-    });
-  });
-}
-
-/* ---------- Contact form (visual UX only) ---------- */
-function initContactForm() {
-  const form = document.getElementById("contactForm");
-  if (!form) return;
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    const status = form.querySelector(".form-status");
-    const lang = document.documentElement.lang || "es";
-    const messages = {
-      es: "Gracias. Este formulario es solo visual — conéctalo a tu servicio (Formspree, Netlify Forms, etc.) para recibir mensajes.",
-      en: "Thanks. This form is visual only — connect it to your service (Formspree, Netlify Forms, etc.) to receive messages.",
-      pl: "Dziękuję. Ten formularz jest tylko wizualny — podłącz go do swojej usługi (Formspree, Netlify Forms itp.), aby otrzymywać wiadomości."
-    };
-    if (status) status.textContent = messages[lang] || messages.es;
-  });
-}
-
-/* ---------- Help cards: float + mouse repulsion ---------- */
-function initHelpCards() {
-  const cards = Array.from(document.querySelectorAll('#help .help-card'));
-  if (!cards.length) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (!window.matchMedia('(hover: hover)').matches) return;
-
-  const THRESHOLD = 100;   // px — how close the mouse must get
-  const STRENGTH  = 18;    // px — max escape displacement
-  const LERP_OUT  = 0.16;  // escape speed (snappy)
-  const LERP_IN   = 0.065; // return speed (floaty)
-
-  // Deterministic per-card float params — no randomness so result is consistent
-  const state = cards.map((_, i) => ({
-    amplitude: 3 + (i % 3) * 1.5,           // 3 / 4.5 / 6 px cycling
-    period:    3000 + (i % 5) * 700,         // 3.0 – 5.8 s cycling
-    phase:     (i / cards.length) * Math.PI * 2,
-    rx: 0, ry: 0,   // current displacement
-    tx: 0, ty: 0,   // target displacement
-  }));
-
-  let mouseX = -9999, mouseY = -9999;
-  let running = false;
-  let raf;
-
-  window.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
-  document.addEventListener('mouseleave', () => { mouseX = -9999; mouseY = -9999; });
-
-  function lerp(a, b, t) { return a + (b - a) * t; }
-
-  function tick(t) {
-    cards.forEach((card, i) => {
-      // Let reveal animation finish before JS takes over
-      if (!card.classList.contains('is-visible')) {
-        card.style.transform = '';
-        return;
-      }
-      const s = state[i];
-
-      // Gentle float oscillation
-      const fy = Math.sin(t / s.period * Math.PI * 2 + s.phase) * s.amplitude;
-
-      // Repulsion from mouse
-      const rect = card.getBoundingClientRect();
-      const cx = rect.left + rect.width  / 2;
-      const cy = rect.top  + rect.height / 2;
-      const dx = cx - mouseX;
-      const dy = cy - mouseY;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-
-      if (dist < THRESHOLD && dist > 1) {
-        const force = (1 - dist / THRESHOLD) * STRENGTH;
-        s.tx = (dx / dist) * force;
-        s.ty = (dy / dist) * force;
-      } else {
-        s.tx = 0;
-        s.ty = 0;
-      }
-
-      // Snap toward target (fast escape, slow return)
-      const lf = (s.tx !== 0 || s.ty !== 0) ? LERP_OUT : LERP_IN;
-      s.rx = lerp(s.rx, s.tx, lf);
-      s.ry = lerp(s.ry, s.ty, lf);
-
-      card.style.transform = `translate(${s.rx.toFixed(2)}px,${(s.ry + fy).toFixed(2)}px)`;
-    });
-
-    if (running) raf = requestAnimationFrame(tick);
-  }
-
-  // Pause rAF while section is off-screen
-  const section = document.getElementById('help');
-  if (section && 'IntersectionObserver' in window) {
-    new IntersectionObserver(([entry]) => {
-      running = entry.isIntersecting;
-      if (running && !raf) raf = requestAnimationFrame(tick);
-      else if (!running && raf) { cancelAnimationFrame(raf); raf = null; }
-    }, { threshold: 0.05 }).observe(section);
-  } else {
-    running = true;
-    raf = requestAnimationFrame(tick);
-  }
-}
-
-/* ---------- Hero prompt → WhatsApp ---------- */
-const WA_NUMBER = "34684003237";
-
-function currentLang() {
-  return document.documentElement.lang || "es";
-}
-
-function openWhatsAppWith(message) {
-  const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
-  window.open(url, "_blank", "noopener");
-}
-
-function initHeroPrompt() {
-  const form  = document.getElementById("heroPrompt");
-  const input = document.getElementById("heroPromptInput");
-  if (!form || !input) return;
-
-  /* ---- Form submit → WhatsApp ---- */
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const lang  = currentLang();
-    const dict  = TRANSLATIONS[lang] || TRANSLATIONS.es;
-    const intro = dict.hero?.promptIntro || "";
-    const text  = input.value.trim();
-    const body  = text ? `${intro}\n\n${text}` : intro;
-    openWhatsAppWith(body);
-  });
-
-  /* ---- Suggestion pills → one-tap prefill + send ---- */
-  document.querySelectorAll(".suggestion-pill").forEach(pill => {
-    pill.addEventListener("click", () => {
-      const idx   = Number(pill.dataset.suggestion);
-      const lang  = currentLang();
-      const dict  = TRANSLATIONS[lang] || TRANSLATIONS.es;
-      const label = dict.hero?.suggestions?.[idx] ?? pill.textContent.trim();
-      input.value = label;
-      form.requestSubmit ? form.requestSubmit() : form.dispatchEvent(new Event("submit", { cancelable: true }));
-    });
-  });
-}
-
-/* ---------- Year in footer ---------- */
+/* ---------- Footer year ---------- */
 function initYear() {
   const el = document.getElementById("year");
   if (el) el.textContent = new Date().getFullYear();
 }
 
-/* ---------- Problems scroll journey ----------
-   Each problem card reveals on enter; current visible card updates the counter. */
-function initProblemsJourney() {
-  const stack = document.getElementById("problemsStack");
-  if (!stack) return;
-  const cards = Array.from(stack.querySelectorAll(".problem-card"));
-  const counter = document.getElementById("problemsCount");
-  const total   = document.getElementById("problemsTotal");
-  if (total) total.textContent = String(cards.length).padStart(2, "0");
-
-  if (!("IntersectionObserver" in window)) {
-    cards.forEach(c => c.classList.add("is-in"));
-    return;
-  }
-
-  // Stagger reveal as each card enters
-  const revealIO = new IntersectionObserver((entries) => {
-    entries.forEach(en => {
-      if (en.isIntersecting) {
-        en.target.classList.add("is-in");
-        revealIO.unobserve(en.target);
-      }
-    });
-  }, { rootMargin: "0px 0px -10% 0px", threshold: 0.15 });
-  cards.forEach(c => revealIO.observe(c));
-
-  // Track current card (closest to viewport center) for the counter
-  if (!counter) return;
-  let activeIdx = -1;
-  const counterIO = new IntersectionObserver((entries) => {
-    let bestRatio = 0; let bestEl = null;
-    entries.forEach(en => {
-      if (en.isIntersecting && en.intersectionRatio > bestRatio) {
-        bestRatio = en.intersectionRatio;
-        bestEl = en.target;
-      }
-    });
-    if (bestEl) {
-      const i = Number(bestEl.dataset.i);
-      if (i !== activeIdx) {
-        activeIdx = i;
-        counter.textContent = String(i + 1).padStart(2, "0");
-      }
-    }
-  }, { threshold: [0.4, 0.6, 0.8], rootMargin: "-20% 0px -20% 0px" });
-  cards.forEach(c => counterIO.observe(c));
+/* ---------- Logo: outline draws, then fills (once per visit) ---------- */
+function initLogoDraw() {
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const logo = document.querySelector(".hero-logo");
+  if (logo) logo.classList.add("is-drawing");
 }
 
-/* ---------- Boot ---------- */
 document.addEventListener("DOMContentLoaded", () => {
   initLanguageSwitch();
   initMobileMenu();
   initSmoothScroll();
   initReveals();
   initHeaderScroll();
-  initActiveNav();
-  initResourceTabs();   // safe no-op on pages without tabs
-  initContactForm();    // safe no-op on pages without form
-  initProblemsJourney();
-  initHeroPrompt();
   initYear();
+  initLogoDraw();
 });

@@ -1,475 +1,160 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="warm">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#FFFFFF" />
-
-  <!-- SEO -->
-  <title data-i18n-meta="title">KONEKTOPIA | Psicoterapia online y terapia de pareja · Barcelona</title>
-  <meta name="description" data-i18n-meta="description" content="Psicoterapia online, terapia de pareja, terapia individual, terapia cognitivo-conductual, cursos prematrimoniales y talleres relacionales en español, inglés y polaco. Con base en Barcelona y atención online internacional." />
-  <meta name="keywords" content="online psychotherapy, online couples therapy, cognitive behavioural therapy, CBT therapy online, Gottman Method couples therapy, multicultural couples therapy, expat psychologist, therapy for expats, relationship counselling, premarital counselling, psychotherapy in English, psychotherapy in Polish, anxiety therapy, online therapist Spain, online psychologist Barcelona, couples therapy Barcelona, psicoterapia Barcelona, terapia de pareja online, psychoterapia online" />
-  <meta name="author" content="KONEKTOPIA" />
+  <title>KONEKTOPIA · Sonia Foder · Online psychotherapy</title>
+  <meta name="description" content="Online psychotherapy with Sonia Foder: individual therapy, couples therapy and life across cultures. In English, Spanish and Polish." />
   <link rel="canonical" href="https://konektopia.com/" />
-
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://konektopia.com/" />
-  <meta property="og:title" data-i18n-meta="ogTitle" content="KONEKTOPIA | Psicoterapia online y terapia de pareja · Barcelona" />
-  <meta property="og:description" data-i18n-meta="ogDescription" content="Psicoterapia online y terapia de pareja. Barcelona y atención online internacional. Reserva una consulta inicial gratuita por WhatsApp." />
-  <meta property="og:locale" content="es_ES" />
-  <meta property="og:locale:alternate" content="en_GB" />
-  <meta property="og:locale:alternate" content="pl_PL" />
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" data-i18n-meta="title" content="KONEKTOPIA" />
-  <meta name="twitter:description" data-i18n-meta="description" content="Psicoterapia online. Barcelona e internacional." />
-
-  <!-- hreflang -->
-  <link rel="alternate" hreflang="es" href="https://konektopia.com/?lang=es" />
+  <meta property="og:title" content="KONEKTOPIA · Sonia Foder · Online psychotherapy" />
+  <meta property="og:description" content="Online psychotherapy with Sonia Foder: individual therapy, couples therapy and life across cultures. In English, Spanish and Polish." />
+  <meta property="og:locale" content="en_GB" />
   <link rel="alternate" hreflang="en" href="https://konektopia.com/?lang=en" />
+  <link rel="alternate" hreflang="es" href="https://konektopia.com/?lang=es" />
   <link rel="alternate" hreflang="pl" href="https://konektopia.com/?lang=pl" />
   <link rel="alternate" hreflang="x-default" href="https://konektopia.com/" />
-
-  <!-- Sitemap -->
-  <link rel="sitemap" type="application/xml" href="https://konektopia.com/sitemap.xml" />
-
-  <!-- Fonts: Space Grotesk (display) + Nunito Sans (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;1,6..12,300;1,6..12,400&display=swap" rel="stylesheet" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23FFD23F'/%3E%3Ctext x='50' y='72' font-family='Inter,Arial,sans-serif' font-size='66' font-weight='700' fill='%230F1117' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 372.73 314.81'%3E%3Cpath fill='%23E30B5C' d='M156.26,147.66l-30.51-31.07L215.16,26.45C241.96.07,281.97-7.55,316.39,8.06c22.87,10.37,40.87,29.6,49.78,53.08,13.68,36.04,5.72,77.17-21.5,104.45l-66.32,66.5-76.01,76.21c-8.33,8.35-23.19,8.9-31.77.29L26.06,163.32C6.46,143.61-1.96,114.96.38,87.69,3.26,54.22,23,25,52.62,9.89,85.47-6.86,124.34-1.97,152.43,21.75l15.35,15.39-30.69,30.64-11.51-11.46c-22.52-18.85-55.02-14.79-72.22,9.26-13.88,19.4-13.86,48.48,3.64,66.13l129.3,130.42,60.9-61.21,69.35-69.63c19.87-23.58,16.08-59.19-8.73-77.42-19.13-14.06-44.53-12.14-62.15,3.87L156.26,147.66Z'/%3E%3C/svg%3E" />
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Schema.org -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": ["ProfessionalService", "MedicalBusiness"],
-    "name": "KONEKTOPIA",
-    "description": "Psychotherapy, couples therapy, individual therapy, CBT, premarital courses and relationship workshops. Online and in-person in Barcelona, Spain.",
-    "url": "https://konektopia.com",
-    "telephone": "+34684003237",
-    "image": "https://konektopia.com/assets/og-image.jpg",
-    "priceRange": "€€",
-    "founder": {
-      "@type": "Person",
-      "name": "Sonia Foder",
-      "jobTitle": "Psychotherapist",
-      "knowsLanguage": ["es", "en", "pl", "fr"]
-    },
-    "address": [
-      { "@type": "PostalAddress", "streetAddress": "c/ Nicaragua 100", "postalCode": "08029", "addressLocality": "Barcelona", "addressCountry": "ES" },
-      { "@type": "PostalAddress", "streetAddress": "c/ Marti i Blasi 6", "postalCode": "08905", "addressLocality": "Hospitalet de Llobregat", "addressCountry": "ES" }
-    ],
-    "areaServed": [
-      {"@type": "City", "name": "Barcelona"},
-      {"@type": "City", "name": "Tarragona"}, {"@type": "City", "name": "Valencia"},
-      {"@type": "City", "name": "Málaga"},    {"@type": "City", "name": "Sevilla"},
-      {"@type": "City", "name": "Cádiz"},     {"@type": "City", "name": "Jerez"},
-      {"@type": "Country", "name": "International (online)"}
-    ],
-    "availableLanguage": ["Spanish", "English", "Polish"],
-    "serviceType": ["Psychotherapy","Couples Therapy","Individual Therapy","Cognitive Behavioural Therapy","Premarital Course","Relationship Workshops"]
-  }
-  </script>
 </head>
 <body>
 
-  <a href="#main" class="skip-link" data-i18n="a11y.skip">Saltar al contenido principal</a>
+  <a href="#main" class="skip-link" data-i18n="a11y.skip">Skip to main content</a>
 
-  <!-- ========= HEADER ========= -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-
-      <a href="/" class="brand" aria-label="KONEKTOPIA">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 40 40" width="30" height="30">
-            <circle cx="14" cy="20" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/>
-            <circle cx="26" cy="20" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/>
-          </svg>
-        </span>
+      <a href="index.html" class="brand" aria-label="KONEKTOPIA">
+        <svg class="logo-mark" viewBox="0 0 372.73 314.81" width="30" height="25" aria-hidden="true"><path pathLength="1" d="M156.26,147.66l-30.51-31.07L215.16,26.45C241.96.07,281.97-7.55,316.39,8.06c22.87,10.37,40.87,29.6,49.78,53.08,13.68,36.04,5.72,77.17-21.5,104.45l-66.32,66.5-76.01,76.21c-8.33,8.35-23.19,8.9-31.77.29L26.06,163.32C6.46,143.61-1.96,114.96.38,87.69,3.26,54.22,23,25,52.62,9.89,85.47-6.86,124.34-1.97,152.43,21.75l15.35,15.39-30.69,30.64-11.51-11.46c-22.52-18.85-55.02-14.79-72.22,9.26-13.88,19.4-13.86,48.48,3.64,66.13l129.3,130.42,60.9-61.21,69.35-69.63c19.87-23.58,16.08-59.19-8.73-77.42-19.13-14.06-44.53-12.14-62.15,3.87L156.26,147.66Z"/></svg>
         <span class="brand-name">KONEKTOPIA</span>
       </a>
-
       <nav class="primary-nav" aria-label="Primary">
         <ul>
-          <li><a href="therapy.html"   data-i18n="nav.therapy">Terapia</a></li>
-          <li><a href="services.html"  data-i18n="nav.services">Servicios</a></li>
-          <li><a href="workshops.html" data-i18n="nav.workshops">Talleres</a></li>
-          <li><a href="resources.html" data-i18n="nav.resources">Recursos</a></li>
-          <li><a href="about.html"     data-i18n="nav.about">Sobre mí</a></li>
-          <li><a href="contact.html"   data-i18n="nav.contact">Contacto</a></li>
+          <li><a href="therapy.html" data-i18n="nav.therapy">Therapy</a></li>
+          <li><a href="only-you.html" data-i18n="nav.onlyYou">Only you</a></li>
+          <li><a href="for-both.html" data-i18n="nav.forBoth">For both</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </nav>
-
       <div class="header-actions">
         <div class="lang-switch" role="group" aria-label="Language">
           <span class="lang-indicator" aria-hidden="true"></span>
-          <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES</button>
-          <span class="lang-dot" aria-hidden="true">·</span>
-          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
-          <span class="lang-dot" aria-hidden="true">·</span>
-          <button type="button" class="lang-btn" data-lang="pl" aria-pressed="false">PL</button>
+          <button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button><span class="lang-dot" aria-hidden="true">·</span><button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button><span class="lang-dot" aria-hidden="true">·</span><button type="button" class="lang-btn" data-lang="pl" aria-pressed="false">PL</button>
         </div>
-
-        <a href="https://wa.me/34684003237" target="_blank" rel="noopener" class="btn btn-primary header-cta">
-          <svg viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-7 15.5-15.5S24.6.5 16 .5Zm0 28.2c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2.7 8.6 8.6 2.7 16 2.7s13.3 5.9 13.3 13.3-5.9 12.7-13.3 12.7Zm7.4-9.8c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.2 1.5c-.2.2-.4.2-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6 0-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 2-1 2.2-1.9.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.6-.4Z"/></svg>
-          <span data-i18n="cta.bookShort">Reservar</span>
-        </a>
-
-        <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
-          <span></span><span></span><span></span>
-        </button>
+        <a href="https://wa.me/34684003237" target="_blank" rel="noopener" class="btn btn-primary header-cta"><svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-7 15.5-15.5S24.6.5 16 .5Zm0 28.2c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2.7 8.6 8.6 2.7 16 2.7s13.3 5.9 13.3 13.3-5.9 12.7-13.3 12.7Zm7.4-9.8c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.2 1.5c-.2.2-.4.2-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6 0-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 2-1 2.2-1.9.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.6-.4Z"/></svg><span data-i18n="cta.touch">Get in touch</span></a>
+        <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
       </div>
-
     </div>
   </header>
 
-  <!-- Mobile menu -->
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <nav aria-label="Mobile navigation">
       <ul>
-        <li><a href="therapy.html"   data-i18n="nav.therapy">Terapia</a></li>
-        <li><a href="services.html"  data-i18n="nav.services">Servicios</a></li>
-        <li><a href="workshops.html" data-i18n="nav.workshops">Talleres</a></li>
-        <li><a href="resources.html" data-i18n="nav.resources">Recursos</a></li>
-        <li><a href="about.html"     data-i18n="nav.about">Sobre mí</a></li>
-        <li><a href="contact.html"   data-i18n="nav.contact">Contacto</a></li>
+          <li><a href="therapy.html" data-i18n="nav.therapy">Therapy</a></li>
+          <li><a href="only-you.html" data-i18n="nav.onlyYou">Only you</a></li>
+          <li><a href="for-both.html" data-i18n="nav.forBoth">For both</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <div class="mobile-footer">
-        <a href="https://wa.me/34684003237" target="_blank" rel="noopener" class="btn btn-primary mobile-cta">
-          <span data-i18n="cta.bookWa">Reservar por WhatsApp</span>
-        </a>
-        <div class="mobile-lang">
-          <button type="button" class="lang-btn is-active" data-lang="es" aria-pressed="true">ES</button>
-          <span aria-hidden="true">·</span>
-          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
-          <span aria-hidden="true">·</span>
-          <button type="button" class="lang-btn" data-lang="pl" aria-pressed="false">PL</button>
-        </div>
+        <a href="https://wa.me/34684003237" target="_blank" rel="noopener" class="btn btn-primary mobile-cta"><svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-7 15.5-15.5S24.6.5 16 .5Zm0 28.2c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2.7 8.6 8.6 2.7 16 2.7s13.3 5.9 13.3 13.3-5.9 12.7-13.3 12.7Zm7.4-9.8c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.2 1.5c-.2.2-.4.2-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6 0-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 2-1 2.2-1.9.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.6-.4Z"/></svg><span data-i18n="cta.touch">Get in touch</span></a>
+        <div class="mobile-lang"><button type="button" class="lang-btn is-active" data-lang="en" aria-pressed="true">EN</button><span class="lang-dot" aria-hidden="true">·</span><button type="button" class="lang-btn" data-lang="es" aria-pressed="false">ES</button><span class="lang-dot" aria-hidden="true">·</span><button type="button" class="lang-btn" data-lang="pl" aria-pressed="false">PL</button></div>
       </div>
     </nav>
   </div>
 
   <main id="main">
-
-    <!-- ========= HERO ========= -->
     <section class="hero" id="hero">
-      <div class="hero-sun" aria-hidden="true"></div>
-
       <div class="container hero-inner">
-
-        <!-- Announce badge -->
-        <span class="hero-announce">
-          <span class="announce-glyph" aria-hidden="true">
-            <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><path d="M10 3.5c.28 0 .5.22.5.5v4.5H15a.5.5 0 0 1 0 1h-4.5V14a.5.5 0 0 1-1 0V9.5H5a.5.5 0 0 1 0-1h4.5V4c0-.28.22-.5.5-.5Zm0-3.5a10 10 0 1 0 0 20A10 10 0 0 0 10 0Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"/></svg>
-          </span>
-          <span data-i18n="hero.announce">Consulta inicial gratuita · plazas limitadas</span>
-        </span>
-
-        <!-- Title -->
-        <h1 class="hero-title">
-          <span class="hero-welcome" data-i18n="hero.welcome">Bienvenidxs a</span>
-          <span class="hero-brand">KONEKTOPIA</span>
-        </h1>
-
-        <!-- Motto -->
-        <p class="hero-motto" data-i18n-html="hero.mottoHtml">La calidad de tus relaciones define<br><mark>la calidad de tu vida</mark>.</p>
-
-        <!-- Chat prompt bar -->
-        <form class="hero-prompt" id="heroPrompt" novalidate>
-
-          <!-- Sparkle decoration -->
-          <span class="prompt-icon prompt-icon-spark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2 9.9 8.6 3 10l6.9 1.4L12 18l2.1-6.6L21 10l-6.9-1.4Z"/></svg>
-          </span>
-
-          <!-- Text input -->
-          <input
-            type="text"
-            id="heroPromptInput"
-            class="prompt-input"
-            placeholder="Cuéntame brevemente qué te trae aquí…"
-            data-i18n-attr="placeholder:hero.promptPlaceholder,aria-label:hero.promptAria"
-            aria-label="Cuéntame brevemente qué te trae aquí"
-            autocomplete="off"
-          >
-
-          <!-- Send button -->
-          <button type="submit" class="prompt-submit">
-            <span data-i18n="hero.promptSend">Enviar</span>
-            <svg viewBox="0 0 20 20" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M12 6l4 4-4 4"/></svg>
-          </button>
-        </form>
-
-        <p class="prompt-hint" data-i18n="hero.promptHint">Al enviar abrirás WhatsApp con tu mensaje listo. Sin compromiso.</p>
-
-        <!-- Suggestion chips -->
-        <div class="hero-suggestions" role="group" aria-label="Sugerencias de consulta">
-          <button type="button" class="suggestion-pill" data-suggestion="0" data-i18n="hero.suggestions.0">Tengo conflictos de pareja</button>
-          <button type="button" class="suggestion-pill" data-suggestion="1" data-i18n="hero.suggestions.1">Quiero empezar terapia individual</button>
-          <button type="button" class="suggestion-pill" data-suggestion="2" data-i18n="hero.suggestions.2">Pensamos en un curso prematrimonial</button>
-          <button type="button" class="suggestion-pill" data-suggestion="3" data-i18n="hero.suggestions.3">Ansiedad o baja autoestima</button>
-          <button type="button" class="suggestion-pill" data-suggestion="4" data-i18n="hero.suggestions.4">Soy expat / migrante</button>
-        </div>
-
-        <!-- Feature pills (3 trust pillars) -->
-        <div class="feature-pills" role="list">
-          <span class="feature-pill" role="listitem">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            </span>
-            <span data-i18n="hero.features.0">Confidencial y profesional</span>
-          </span>
-          <span class="feature-pill" role="listitem">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-            </span>
-            <span data-i18n="hero.features.1">Flexible y online</span>
-          </span>
-          <span class="feature-pill" role="listitem">
-            <span class="feature-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            </span>
-            <span data-i18n="hero.features.2">Integral y a tu medida</span>
-          </span>
-        </div>
-
+        <svg class="logo-mark hero-logo" viewBox="0 0 372.73 314.81" width="76" height="64" aria-hidden="true"><path pathLength="1" d="M156.26,147.66l-30.51-31.07L215.16,26.45C241.96.07,281.97-7.55,316.39,8.06c22.87,10.37,40.87,29.6,49.78,53.08,13.68,36.04,5.72,77.17-21.5,104.45l-66.32,66.5-76.01,76.21c-8.33,8.35-23.19,8.9-31.77.29L26.06,163.32C6.46,143.61-1.96,114.96.38,87.69,3.26,54.22,23,25,52.62,9.89,85.47-6.86,124.34-1.97,152.43,21.75l15.35,15.39-30.69,30.64-11.51-11.46c-22.52-18.85-55.02-14.79-72.22,9.26-13.88,19.4-13.86,48.48,3.64,66.13l129.3,130.42,60.9-61.21,69.35-69.63c19.87-23.58,16.08-59.19-8.73-77.42-19.13-14.06-44.53-12.14-62.15,3.87L156.26,147.66Z"/></svg>
+        <h1 class="hero-title">KONEKTOPIA</h1>
+        <p class="hero-name">Sonia Foder</p>
+        <p class="hero-subtitle" data-i18n="home.subtitle">Psychotherapist specialising in relationships and the pressures of modern life</p>
+        <span class="rule" aria-hidden="true"></span>
+        <p class="hero-tagline" data-i18n="home.tagline">Understand. Change. Feel better.</p>
+        <p class="hero-intro" data-i18n="home.intro">Therapy helps you make sense of what you're experiencing, make meaningful changes and build a more satisfying life.</p>
       </div>
     </section>
 
-    <!-- ========= PROBLEMS WE WILL RESOLVE — scroll journey ========= -->
-    <section class="problems" id="problems">
+    <section class="paths" aria-label="Therapy">
       <div class="container">
-        <div class="problems-layout">
-
-          <aside class="problems-aside">
-            <span class="eyebrow" data-i18n="problems.eyebrow">Lo que abordamos</span>
-            <h2 class="section-title" data-i18n="problems.title">Problemas que resolvemos juntos</h2>
-            <p class="section-lead" data-i18n="problems.lead">Cada dificultad merece su espacio, atención y cuidado. Estos son los temas con los que más trabajo.</p>
-            <p class="problems-counter"><span id="problemsCount">01</span> / <span id="problemsTotal">16</span></p>
-          </aside>
-
-          <div class="problems-stack" id="problemsStack">
-            <article class="problem-card" data-i="0"><span class="problem-num">01</span><h3 data-i18n="problems.items.0">Conflictos de pareja</h3></article>
-            <article class="problem-card" data-i="1"><span class="problem-num">02</span><h3 data-i18n="problems.items.1">Problemas de comunicación</h3></article>
-            <article class="problem-card" data-i="2"><span class="problem-num">03</span><h3 data-i18n="problems.items.2">Distancia emocional</h3></article>
-            <article class="problem-card" data-i="3"><span class="problem-num">04</span><h3 data-i18n="problems.items.3">Ansiedad</h3></article>
-            <article class="problem-card" data-i="4"><span class="problem-num">05</span><h3 data-i18n="problems.items.4">Baja autoestima</h3></article>
-            <article class="problem-card" data-i="5"><span class="problem-num">06</span><h3 data-i18n="problems.items.5">Dificultades en citas modernas</h3></article>
-            <article class="problem-card" data-i="6"><span class="problem-num">07</span><h3 data-i18n="problems.items.6">Miedo al compromiso</h3></article>
-            <article class="problem-card" data-i="7"><span class="problem-num">08</span><h3 data-i18n="problems.items.7">Patrones relacionales repetidos</h3></article>
-            <article class="problem-card" data-i="8"><span class="problem-num">09</span><h3 data-i18n="problems.items.8">Prevención de ruptura o divorcio</h3></article>
-            <article class="problem-card" data-i="9"><span class="problem-num">10</span><h3 data-i18n="problems.items.9">Dependencia emocional</h3></article>
-            <article class="problem-card" data-i="10"><span class="problem-num">11</span><h3 data-i18n="problems.items.10">Recuperación tras una infidelidad</h3></article>
-            <article class="problem-card" data-i="11"><span class="problem-num">12</span><h3 data-i18n="problems.items.11">Bajo deseo o dificultades de intimidad</h3></article>
-            <article class="problem-card" data-i="12"><span class="problem-num">13</span><h3 data-i18n="problems.items.12">Soledad</h3></article>
-            <article class="problem-card" data-i="13"><span class="problem-num">14</span><h3 data-i18n="problems.items.13">Relaciones multiculturales</h3></article>
-            <article class="problem-card" data-i="14"><span class="problem-num">15</span><h3 data-i18n="problems.items.14">Adaptación de expatriados</h3></article>
-            <article class="problem-card" data-i="15"><span class="problem-num">16</span><h3 data-i18n="problems.items.15">Construir vínculos sanos</h3></article>
-          </div>
-
+        <div class="paths-grid">
+          <a class="path-card reveal" href="only-you.html">
+            <h3 data-i18n="card.individual.title">Individual therapy</h3>
+            <p data-i18n="card.individual.text">Understand recurring patterns, work through emotional difficulties and develop new ways forward.</p>
+            <span class="path-more"><span data-i18n="cta.more">Learn more</span> <span aria-hidden="true">→</span></span>
+          </a>
+          <a class="path-card reveal" href="for-both.html">
+            <h3 data-i18n="card.couples.title">Couples therapy</h3>
+            <p data-i18n="card.couples.text">Improve communication, work through conflicts and relationship crises. Rebuild connection and intimacy.</p>
+            <span class="path-more"><span data-i18n="cta.more">Learn more</span> <span aria-hidden="true">→</span></span>
+          </a>
+          <a class="path-card reveal" href="life-across-cultures.html">
+            <h3 data-i18n="card.cultures.title">Life across cultures</h3>
+            <p data-i18n="card.cultures.text">Navigate cultural differences, adapt to life between countries and build fulfilling relationships.</p>
+            <span class="path-more"><span data-i18n="cta.more">Learn more</span> <span aria-hidden="true">→</span></span>
+          </a>
         </div>
+        <ul class="tags">
+          <li data-i18n="tags.0">Solution-oriented</li><li data-i18n="tags.1">Tailored to you</li><li data-i18n="tags.2">Online</li><li data-i18n="tags.3">In Spanish · English · Polish</li>
+        </ul>
       </div>
     </section>
 
-    <!-- ========= SERVICE PATHWAYS ========= -->
-    <section class="pathways" id="pathways">
+    <section class="talk">
       <div class="container">
-        <header class="section-head reveal">
-          <span class="eyebrow" data-i18n="pathways.eyebrow">Cómo te puedo acompañar</span>
-          <h2 class="section-title" data-i18n="pathways.title">Cinco caminos, una misma intención</h2>
-        </header>
-
-        <div class="pathways-grid">
-          <a class="pathway-card pw-1 reveal" href="therapy.html#couples">
-            <span class="pw-num">01</span>
-            <h3 data-i18n="pathways.items.0.t">Terapia de pareja</h3>
-            <p data-i18n="pathways.items.0.d">Comunicación, conflicto, intimidad y decisiones importantes.</p>
-            <span class="pw-link" data-i18n="cta.learnMore">Más información →</span>
-          </a>
-          <a class="pathway-card pw-2 reveal" href="therapy.html#individual">
-            <span class="pw-num">02</span>
-            <h3 data-i18n="pathways.items.1.t">Terapia individual</h3>
-            <p data-i18n="pathways.items.1.d">Ansiedad, autoestima, regulación emocional, patrones relacionales.</p>
-            <span class="pw-link" data-i18n="cta.learnMore">Más información →</span>
-          </a>
-          <a class="pathway-card pw-3 reveal" href="workshops.html">
-            <span class="pw-num">03</span>
-            <h3 data-i18n="pathways.items.2.t">Talleres</h3>
-            <p data-i18n="pathways.items.2.d">Comunicación, intimidad emocional, amor moderno. Online y presencial.</p>
-            <span class="pw-link" data-i18n="cta.learnMore">Más información →</span>
-          </a>
-          <a class="pathway-card pw-4 reveal" href="workshops.html#premarital">
-            <span class="pw-num">04</span>
-            <h3 data-i18n="pathways.items.3.t">Curso prematrimonial</h3>
-            <p data-i18n="pathways.items.3.d">Para parejas que valoran un paso importante con conciencia.</p>
-            <span class="pw-link" data-i18n="cta.learnMore">Más información →</span>
-          </a>
-          <a class="pathway-card pw-5 reveal" href="workshops.html#singles">
-            <span class="pw-num">05</span>
-            <h3 data-i18n="pathways.items.4.t">Para singles</h3>
-            <p data-i18n="pathways.items.4.d">Entender patrones, elegir mejor, sanar el camino hacia el otro.</p>
-            <span class="pw-link" data-i18n="cta.learnMore">Más información →</span>
-          </a>
-          <a class="pathway-card pw-6 reveal" href="resources.html">
-            <span class="pw-num">06</span>
-            <h3 data-i18n="pathways.items.5.t">Recursos</h3>
-            <p data-i18n="pathways.items.5.d">Artículos, ebooks y cursos para acompañar tu proceso.</p>
-            <span class="pw-link" data-i18n="cta.learnMore">Más información →</span>
-          </a>
+        <div class="talk-card reveal">
+          <p class="talk-text" data-i18n="home.ctaText">Not sure whether therapy is right for you? Taking the first step can be difficult. Sometimes, one conversation is enough to help you see things more clearly.</p>
+          <a href="https://wa.me/34684003237" target="_blank" rel="noopener" class="btn btn-primary btn-lg"><svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-7 15.5-15.5S24.6.5 16 .5Zm0 28.2c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2.7 8.6 8.6 2.7 16 2.7s13.3 5.9 13.3 13.3-5.9 12.7-13.3 12.7Zm7.4-9.8c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.2 1.5c-.2.2-.4.2-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6 0-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 2-1 2.2-1.9.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.6-.4Z"/></svg><span data-i18n="cta.touch">Get in touch</span> <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
-
-    <!-- ========= ABOUT TEASER ========= -->
-    <section class="about-teaser" id="about-teaser">
-      <div class="container about-teaser-grid">
-        <div class="about-teaser-text reveal">
-          <span class="eyebrow" data-i18n="about.eyebrow">Sobre KONEKTOPIA</span>
-          <h2 class="section-title" data-i18n="aboutTeaser.title">Acompañar, comprender, transformar</h2>
-          <p data-i18n="aboutTeaser.p1">Psicoterapeuta con formación en Psicología, Terapia de Pareja y Terapia Cognitivo-Conductual. Acompaño a personas y parejas en su proceso de comprensión, regulación emocional y construcción de vínculos sanos.</p>
-          <p data-i18n="aboutTeaser.p2">Como persona emigrante, trabajo especialmente con expatriados, migrantes y parejas multiculturales.</p>
-          <a href="about.html" class="btn btn-secondary" data-i18n="cta.aboutMore">Conoce más sobre mí</a>
-        </div>
-        <div class="about-teaser-visual reveal" aria-hidden="true">
-          <div class="about-teaser-card">
-            <span class="about-quote">“</span>
-            <p data-i18n="aboutTeaser.quote">Mi misión es aliviar el sufrimiento emocional que impide vivir una vida plena y satisfactoria.</p>
-            <span class="about-sign" data-i18n="aboutTeaser.sign">— Sonia Foder</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========= PROCESS ========= -->
-    <section class="process" id="process">
-      <div class="container">
-        <header class="section-head reveal">
-          <span class="eyebrow" data-i18n="process.eyebrow">Cómo empezar</span>
-          <h2 class="section-title" data-i18n="process.title">Tu camino, sencillo y claro</h2>
-          <p class="section-lead" data-i18n="process.lead">Cinco pasos pensados con cuidado para que sepas qué esperar desde el primer momento.</p>
-        </header>
-
-        <ol class="process-steps">
-          <li class="process-step reveal">
-            <span class="ps-num">01</span>
-            <h3 data-i18n="process.steps.0.t">Contacto</h3>
-            <p data-i18n="process.steps.0.d">Me escribes por WhatsApp con una breve descripción de lo que te trae aquí.</p>
-          </li>
-          <li class="process-step reveal">
-            <span class="ps-num">02</span>
-            <h3 data-i18n="process.steps.1.t">Consulta inicial gratuita</h3>
-            <p data-i18n="process.steps.1.d">Hablamos sin compromiso para conocernos y entender qué necesitas.</p>
-          </li>
-          <li class="process-step reveal">
-            <span class="ps-num">03</span>
-            <h3 data-i18n="process.steps.2.t">Entendemos la situación</h3>
-            <p data-i18n="process.steps.2.d">Exploramos contexto, historia y objetivos con calma y honestidad.</p>
-          </li>
-          <li class="process-step reveal">
-            <span class="ps-num">04</span>
-            <h3 data-i18n="process.steps.3.t">Elegimos el apoyo adecuado</h3>
-            <p data-i18n="process.steps.3.d">Terapia individual, de pareja, taller o curso — lo que mejor encaje.</p>
-          </li>
-          <li class="process-step reveal">
-            <span class="ps-num">05</span>
-            <h3 data-i18n="process.steps.4.t">Empezamos</h3>
-            <p data-i18n="process.steps.4.d">Comienza el proceso con un ritmo respetuoso para ti.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ========= FINAL CTA ========= -->
-    <section class="final-cta" id="book">
-      <div class="container">
-        <div class="final-card reveal">
-          <span class="eyebrow" data-i18n="finalCta.eyebrow">Empezar</span>
-          <h2 class="final-title" data-i18n="finalCta.title">¿Listx para dar el primer paso?</h2>
-          <p data-i18n="finalCta.lead">La consulta inicial es gratuita y sin compromiso. Cuéntame brevemente qué buscas y te escribo en menos de 24h.</p>
-          <div class="final-ctas">
-            <a href="https://wa.me/34684003237" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
-              <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-7 15.5-15.5S24.6.5 16 .5Zm0 28.2c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2.7 8.6 8.6 2.7 16 2.7s13.3 5.9 13.3 13.3-5.9 12.7-13.3 12.7Zm7.4-9.8c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.2 1.5c-.2.2-.4.2-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6 0-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 2-1 2.2-1.9.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.6-.4Z"/></svg>
-              <span data-i18n="cta.bookWa">Reservar por WhatsApp</span>
-            </a>
-            <a href="contact.html" class="btn-link" data-i18n="cta.otherWays">Otras formas de contacto →</a>
-          </div>
-          <p class="final-tiny" data-i18n="finalCta.tiny">+34 684 00 32 37 · Respuesta en menos de 24h</p>
-        </div>
-      </div>
-    </section>
-
   </main>
 
-  <!-- ========= FOOTER ========= -->
   <footer class="site-footer">
     <div class="container footer-grid">
-
       <div class="footer-brand">
-        <div class="brand brand-foot">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 40 40" width="30" height="30"><circle cx="14" cy="20" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="26" cy="20" r="9" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
-          </span>
-          <span class="brand-name">KONEKTOPIA</span>
-        </div>
-        <p class="foot-tagline" data-i18n="footer.tagline">Psicoterapia online y terapia de pareja. Barcelona y atención online internacional.</p>
-        <p class="foot-langs"><strong data-i18n="footer.langsLabel">Idiomas:</strong> <span data-i18n="footer.langs">Español · English · Polski</span></p>
+        <a href="index.html" class="brand brand-foot" aria-label="KONEKTOPIA"><svg class="logo-mark" viewBox="0 0 372.73 314.81" width="28" height="24" aria-hidden="true"><path pathLength="1" d="M156.26,147.66l-30.51-31.07L215.16,26.45C241.96.07,281.97-7.55,316.39,8.06c22.87,10.37,40.87,29.6,49.78,53.08,13.68,36.04,5.72,77.17-21.5,104.45l-66.32,66.5-76.01,76.21c-8.33,8.35-23.19,8.9-31.77.29L26.06,163.32C6.46,143.61-1.96,114.96.38,87.69,3.26,54.22,23,25,52.62,9.89,85.47-6.86,124.34-1.97,152.43,21.75l15.35,15.39-30.69,30.64-11.51-11.46c-22.52-18.85-55.02-14.79-72.22,9.26-13.88,19.4-13.86,48.48,3.64,66.13l129.3,130.42,60.9-61.21,69.35-69.63c19.87-23.58,16.08-59.19-8.73-77.42-19.13-14.06-44.53-12.14-62.15,3.87L156.26,147.66Z"/></svg><span class="brand-name">KONEKTOPIA</span></a>
+        <p class="foot-tagline" data-i18n="footer.tagline">Online psychotherapy in English, Spanish and Polish.</p>
       </div>
-
       <div class="footer-col">
-        <h4 data-i18n="footer.exploreTitle">Explorar</h4>
+        <h4 data-i18n="footer.exploreTitle">Explore</h4>
         <ul>
-          <li><a href="therapy.html"   data-i18n="nav.therapy">Terapia</a></li>
-          <li><a href="services.html"  data-i18n="nav.services">Servicios y precios</a></li>
-          <li><a href="workshops.html" data-i18n="nav.workshops">Talleres</a></li>
-          <li><a href="resources.html" data-i18n="nav.resources">Recursos</a></li>
-          <li><a href="about.html"     data-i18n="nav.about">Sobre mí</a></li>
+          <li><a href="therapy.html" data-i18n="nav.therapy">Therapy</a></li>
+          <li><a href="only-you.html" data-i18n="nav.onlyYou">Only you</a></li>
+          <li><a href="for-both.html" data-i18n="nav.forBoth">For both</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
         </ul>
       </div>
-
       <div class="footer-col">
-        <h4 data-i18n="footer.contactTitle">Contacto</h4>
+        <h4 data-i18n="footer.contactTitle">Contact</h4>
         <ul>
           <li><a href="https://wa.me/34684003237" target="_blank" rel="noopener">WhatsApp · +34 684 00 32 37</a></li>
-          <li><a href="tel:+34684003237">Llamar · +34 684 00 32 37</a></li>
-          <li><a href="contact.html" data-i18n="nav.contact">Página de contacto</a></li>
+          <li><a href="tel:+34684003237"><span data-i18n="cta.call">Call</span> · +34 684 00 32 37</a></li>
         </ul>
-        <address class="foot-address">
-          c/ Nicaragua 100, Barcelona<br/>
-          c/ Marti i Blasi 6, Hospitalet
-        </address>
       </div>
-
       <div class="footer-col">
         <h4 data-i18n="footer.legalTitle">Legal</h4>
         <ul>
-          <li><a href="legal.html#privacy" data-i18n="footer.privacy">Política de privacidad</a></li>
-          <li><a href="legal.html#legal"   data-i18n="footer.legal">Aviso legal</a></li>
-          <li><a href="legal.html#cookies" data-i18n="footer.cookies">Política de cookies</a></li>
+          <li><a href="legal.html#privacy" data-i18n="footer.privacy">Privacy policy</a></li>
+          <li><a href="legal.html#legal" data-i18n="footer.legal">Legal notice</a></li>
+          <li><a href="legal.html#cookies" data-i18n="footer.cookies">Cookies policy</a></li>
         </ul>
-        <p class="legal-note" data-i18n="footer.crisis">Esta web no ofrece atención de urgencia. Si estás en peligro inmediato, contacta con los servicios de emergencia locales (en España, 112).</p>
+        <p class="legal-note" data-i18n="footer.crisis">This website does not offer emergency support. If you are in immediate danger, please contact your local emergency services (in Spain, dial 112).</p>
       </div>
-
     </div>
-
     <div class="container foot-bottom">
-      <p>&copy; <span id="year"></span> KONEKTOPIA · <span data-i18n="footer.byline">Psicoterapia y acompañamiento relacional</span></p>
-      <p class="foot-meta" data-i18n="footer.meta">Barcelona, España · Online internacional</p>
+      <p>&copy; <span id="year"></span> KONEKTOPIA · Sonia Foder</p>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/34684003237" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp">
-    <svg viewBox="0 0 32 32" width="26" height="26" aria-hidden="true">
-      <path fill="currentColor" d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-7 15.5-15.5S24.6.5 16 .5Zm0 28.2c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2.7 8.6 8.6 2.7 16 2.7s13.3 5.9 13.3 13.3-5.9 12.7-13.3 12.7Zm7.4-9.8c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.2 1.5c-.2.2-.4.2-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6 0-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 2-1 2.2-1.9.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.6-.4Z"/>
-    </svg>
-  </a>
+  <a href="https://wa.me/34684003237" target="_blank" rel="noopener" class="wa-float" aria-label="WhatsApp"><svg viewBox="0 0 32 32" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M16 .5C7.4.5.5 7.4.5 16c0 2.8.7 5.5 2.1 7.9L.5 31.5l7.8-2c2.3 1.3 4.9 1.9 7.7 1.9 8.6 0 15.5-7 15.5-15.5S24.6.5 16 .5Zm0 28.2c-2.5 0-4.9-.7-7-1.9l-.5-.3-4.6 1.2 1.2-4.5-.3-.5c-1.4-2.2-2.1-4.7-2.1-7.2C2.7 8.6 8.6 2.7 16 2.7s13.3 5.9 13.3 13.3-5.9 12.7-13.3 12.7Zm7.4-9.8c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.2 1.5c-.2.2-.4.2-.8.1-.4-.2-1.7-.6-3.2-2-1.2-1-2-2.3-2.2-2.7-.2-.4 0-.6.2-.8.2-.2.4-.4.5-.6.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6 0-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.8 0 1.6 1.2 3.2 1.4 3.5.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 2-1 2.2-1.9.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.6-.4Z"/></svg></a>
 
   <script src="script.js"></script>
 </body>

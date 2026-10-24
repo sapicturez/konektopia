@@ -1,0 +1,4 @@
+# Old pages → therapy hub
+Redirect 301 /services.html /therapy.html
+Redirect 301 /workshops.html /therapy.html
+Redirect 301 /resources.html /therapy.html
