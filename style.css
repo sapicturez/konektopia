@@ -720,6 +720,10 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 .wa-float { box-shadow: 4px 4px 0 var(--bauhaus); }
 .wa-float:hover { box-shadow: 6px 6px 0 var(--bauhaus); }
 
+/* Never show the text (I-beam) cursor: arrow everywhere, hand on interactive things */
+*, *::before, *::after { cursor: default; }
+a, a *, button, button *, [role="button"], label, summary, .heart-dot, .heart-dot * { cursor: pointer; }
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
