@@ -2,3 +2,10 @@
 Redirect 301 /services.html /therapy.html
 Redirect 301 /workshops.html /therapy.html
 Redirect 301 /resources.html /therapy.html
+
+# Always revalidate pages and assets so updates show up immediately
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|css|js|xml|txt)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
