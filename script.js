@@ -382,7 +382,8 @@ function initLanguageSwitch() {
   const switchEl = document.querySelector(".lang-switch");
   if (!switchEl) return;
   const indicator = switchEl.querySelector(".lang-indicator");
-  const buttons = Array.from(switchEl.querySelectorAll(".lang-btn"));
+  // Header switch and the mobile-menu switch: every language button on the page
+  const buttons = Array.from(document.querySelectorAll(".lang-btn"));
 
   function moveIndicator(activeBtn) {
     if (!indicator) return;   // indicator is hidden in new design — skip gracefully
