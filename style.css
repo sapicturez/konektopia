@@ -702,24 +702,6 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
   .wa-float { width: 56px; height: 56px; bottom: 18px; right: 18px; }
 }
 
-/* ---------- Bauhaus / brutalist touch: hard offset shadows ---------- */
-:root { --bauhaus: #45365A; --hard: 5px; }
-.btn-primary, .btn-secondary, .path-card { box-shadow: var(--hard) var(--hard) 0 var(--bauhaus); }
-.path-card { border-color: var(--ink); }
-.btn-primary:hover, .btn-secondary:hover, .path-card:hover, .path-card:focus-visible {
-  transform: translate(-2px, -2px);
-  box-shadow: calc(var(--hard) + 2px) calc(var(--hard) + 2px) 0 var(--bauhaus);
-}
-.btn-primary:active, .btn-secondary:active, .path-card:active {   /* pressed into its shadow */
-  transform: translate(var(--hard), var(--hard));
-  box-shadow: 0 0 0 var(--bauhaus);
-}
-.header-cta { box-shadow: 3px 3px 0 var(--bauhaus); }
-.header-cta:hover { box-shadow: 4px 4px 0 var(--bauhaus); }
-.talk-card { box-shadow: 8px 8px 0 var(--bauhaus); }
-.wa-float { box-shadow: 4px 4px 0 var(--bauhaus); }
-.wa-float:hover { box-shadow: 6px 6px 0 var(--bauhaus); }
-
 /* Never show the text (I-beam) cursor: arrow everywhere, hand on interactive things */
 *, *::before, *::after { cursor: default; }
 a, a *, button, button *, [role="button"], label, summary, .heart-dot, .heart-dot * { cursor: pointer; }
