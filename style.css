@@ -547,6 +547,9 @@ mark.green, .hl.green { background: var(--green); color: var(--ink); }
 }
 .hero-intro { max-width: 56ch; font-size: 1.08rem; line-height: 1.65; color: var(--ink-2); margin: 0; }
 
+/* Outfit kerns T under K's arm: open just that pair so the letters never touch */
+.kt-gap { margin-right: .05em; }
+
 /* Heart as the dot over the "I": draws, holds, then retracts — every 10 s */
 .heart-i { position: relative; display: inline-block; }
 .heart-dot {
